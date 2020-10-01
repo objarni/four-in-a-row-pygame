@@ -1,0 +1,9 @@
+GameState
+It is reds turn.
+O O O O O O 
+O O O O O O 
+O O O O O O 
+Y O O O O O 
+R O O O O O 
+Y O O O O O 
+R O O O O O 
