@@ -5,31 +5,31 @@ from src.four_in_a_row import (GameOverState, update, GameState, ColumnWasClicke
 
 
 def print_model(model):
-    state = model.__class__.__name__ + '\n'
+    state_string = model.__class__.__name__ + '\n'
     if isinstance(model, GameOverState):
-        state += f'{print_color(model.winner).title()} won.\n'
+        state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
-        state += f'It is {model.whos_turn()}s turn.\n'
+        state_string += f'It is {model.whos_turn()}s turn.\n'
         symbols = {
             EMPTY: 'O',
             RED: 'R',
             YELLOW: 'Y'
         }
-        for y in range(7):
-            for x in range(6):
+        for y in range(6):
+            for x in range(7):
                 pos = (x, y)
                 board = model.board
                 cell = board[pos]
-                state += symbols[cell] + ' '
-            state += '\n'
-    return state
+                state_string += symbols[cell] + ' '
+            state_string += '\n'
+    return state_string
 
 
 def test_first_placed_brick_is_red():
     model = GameState()
     model = update(model, ColumnWasClicked(0))
-    state = print_model(model)
-    verify(state)
+    state_string = print_model(model)
+    verify(state_string)
 
 
 def test_placing_4_bricks_in_first_column():
@@ -38,8 +38,8 @@ def test_placing_4_bricks_in_first_column():
     model = update(model, ColumnWasClicked(0))
     model = update(model, ColumnWasClicked(0))
     model = update(model, ColumnWasClicked(0))
-    state = print_model(model)
-    verify(state)
+    state_string = print_model(model)
+    verify(state_string)
 
 
 def test_letting_red_win():
@@ -51,8 +51,8 @@ def test_letting_red_win():
     model = update(model, ColumnWasClicked(0))  # red
     model = update(model, ColumnWasClicked(1))  # yellow
     model = update(model, ColumnWasClicked(0))  # red
-    state = print_model(model)
-    verify(state)
+    state_string = print_model(model)
+    verify(state_string)
 
 
 def test_letting_red_win_horisontally():
@@ -64,5 +64,5 @@ def test_letting_red_win_horisontally():
     model = update(model, ColumnWasClicked(2))  # red
     model = update(model, ColumnWasClicked(5))  # yellow
     model = update(model, ColumnWasClicked(3))  # red
-    state = print_model(model)
-    verify(state)
+    state_string = print_model(model)
+    verify(state_string)

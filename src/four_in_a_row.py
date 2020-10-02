@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 # CONSTANTS #
+DISC_SIZE = 80
 RED, YELLOW, EMPTY = range(3)
 WIDTH, HEIGHT = 1024, 768
 
@@ -59,7 +60,10 @@ def update(model, msg):
 
 
 def place_brick(board, color, column):
-    for y in range(6, -1, -1):
+    print(f"Placing brick color {color}")
+    for i in range(6):
+        y = 5 - i
+        print(f"checking {column, y}")
         if board[(column, y)] == EMPTY:
             board[(column, y)] = color
             break
@@ -88,36 +92,21 @@ def check_winning_state(board, color):
     return False
 
 
-# MAIN PROGRAM #
+def view(model, screen):
+    if isinstance(model, GameState):
+        screen.fill(Color.BLACK)
+        for y in range(6):
+            for x in range(7):
+                value = model.board[(x, y)]
+                if value != EMPTY:
+                    color = Color.RED if value == RED else Color.YELLOW
+                    x0 = int(WIDTH/2 - 7 * DISC_SIZE/2 + x * DISC_SIZE)
+                    y0 = int(HEIGHT/2 - 6 * DISC_SIZE/2 + y * DISC_SIZE)
+                    pos = (x0, y0)
+                    pygame.draw.circle(screen, color, pos, DISC_SIZE//2, DISC_SIZE//2)
 
-import pygame
-
-
-def main_menu():
-    pygame.display.update()
-
-    while True:
-        ev = pygame.event.poll()
-        if ev.type == pygame.KEYDOWN:
-            if ev.key == pygame.K_RETURN:
-                break
-            elif ev.key == pygame.K_q:
-                pygame.quit()
-                quit()
-        elif ev.type == pygame.QUIT:
-            pygame.quit()
-            quit()
-        else:
-            draw_text(screen, "Press [ENTER] To Begin", 30, WIDTH / 2, HEIGHT / 2)
-            draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
-            pygame.display.update()
-
-    # pygame.mixer.music.stop()
-    # ready = pygame.mixer.Sound(path.join(sound_folder, 'getready.ogg'))
-    # ready.play()
-    screen.fill(Color.BLACK)
-    draw_text(screen, "GET READY!", 40, WIDTH / 2, HEIGHT / 2)
-    pygame.display.update()
+    draw_text(screen, "Press [ENTER] To Begin", 30, WIDTH / 2, HEIGHT / 2)
+    draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
 
 
 def draw_text(surf, text, size, x, y):
@@ -128,12 +117,41 @@ def draw_text(surf, text, size, x, y):
     surf.blit(text_surface, text_rect)
 
 
+# MAIN PROGRAM #
+
+import pygame
+
+
+def mainloop(screen):
+    model = GameState()
+    msgs = []
+    while True:
+        # Translate low level events to domain events
+        ev = pygame.event.poll()
+        if ev.type == pygame.KEYDOWN:
+            if ev.key == pygame.K_RETURN:
+                msgs.append(ColumnWasClicked(0))
+            elif ev.key == pygame.K_q:
+                break
+        elif ev.type == pygame.QUIT:
+            break
+
+        # Handle events updating state
+        while len(msgs) > 0:
+            msg = msgs.pop(0)
+            model = update(model, msg)
+
+        # Display current model
+        view(model, screen)
+
+        pygame.display.update()
+
+
 if __name__ == '__main__':
     pygame.init()
-    # pygame.mixer.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Four in a row")
     clock = pygame.time.Clock()
     font_name = pygame.font.match_font('arial')
-    main_menu()
+    mainloop(screen)
     pygame.quit()
