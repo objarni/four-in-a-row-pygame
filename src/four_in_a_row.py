@@ -97,22 +97,25 @@ def all_positions():
 def view(model, screen):
     if isinstance(model, GameState):
         screen.fill(Color.BLACK)
-        r = pygame.Rect()
-        r.midtop = CENTER
-        r.width = DISC_SIZE * COLUMNS
-        r.height = DISC_SIZE * HEIGHT
-        pygame.draw.rect(screen, Color.BLUE, r, 2)
+        r = pygame.Rect(0, 0, DISC_SIZE * COLUMNS + 20, DISC_SIZE * ROWS + 20)
+        r.center = CENTER
+        pygame.draw.rect(screen, Color.BLUE, r)
         for (x, y) in all_positions():
             value = model.board[(x, y)]
+            color = Color.BLACK
             if value != EMPTY:
                 color = Color.RED if value == RED else Color.YELLOW
-                x0 = int(WIDTH / 2 - COLUMNS * DISC_SIZE / 2 + x * DISC_SIZE)
-                y0 = int(HEIGHT / 2 - ROWS * DISC_SIZE / 2 + y * DISC_SIZE)
-                pos = (x0, y0)
-                pygame.draw.circle(screen, color, pos, DISC_SIZE // 2, DISC_SIZE // 2)
+            draw_disc(color, screen, x, y)
 
     draw_text(screen, f"{model.whos_turn().title()} to place disc", 30, WIDTH // 2, 0)
     # draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
+
+
+def draw_disc(color, screen, x, y):
+    x0 = int(WIDTH / 2 - COLUMNS * DISC_SIZE / 2 + x * DISC_SIZE + DISC_SIZE // 2)
+    y0 = int(HEIGHT / 2 - ROWS * DISC_SIZE / 2 + y * DISC_SIZE + DISC_SIZE // 2)
+    pos = (x0, y0)
+    pygame.draw.circle(screen, color, pos, DISC_SIZE // 2, DISC_SIZE // 2)
 
 
 def draw_text(surf, text, size, x, y):
