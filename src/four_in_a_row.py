@@ -1,9 +1,10 @@
 from collections import defaultdict
 
 # CONSTANTS #
-DISC_SIZE = 80
+DISC_SIZE = 130
 RED, YELLOW, EMPTY = range(3)
-WIDTH, HEIGHT = 1024, 768
+WIDTH, HEIGHT = 1200, 1200
+CENTER = (WIDTH // 2, HEIGHT // 2)
 COLUMNS = 7
 ROWS = 6
 
@@ -96,6 +97,11 @@ def all_positions():
 def view(model, screen):
     if isinstance(model, GameState):
         screen.fill(Color.BLACK)
+        r = pygame.Rect()
+        r.midtop = CENTER
+        r.width = DISC_SIZE * COLUMNS
+        r.height = DISC_SIZE * HEIGHT
+        pygame.draw.rect(screen, Color.BLUE, r, 2)
         for (x, y) in all_positions():
             value = model.board[(x, y)]
             if value != EMPTY:
@@ -105,8 +111,8 @@ def view(model, screen):
                 pos = (x0, y0)
                 pygame.draw.circle(screen, color, pos, DISC_SIZE // 2, DISC_SIZE // 2)
 
-    draw_text(screen, "Press [ENTER] To Begin", 30, WIDTH / 2, HEIGHT / 2)
-    draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
+    draw_text(screen, f"{model.whos_turn().title()} to place disc", 30, WIDTH // 2, 0)
+    # draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
 
 
 def draw_text(surf, text, size, x, y):
@@ -128,13 +134,15 @@ def log(msg):
 
 def mainloop(screen):
     model = GameState()
-    msgs = []
+    i = 0
     while True:
         # Translate low level events to domain events
+        msgs = []
         ev = pygame.event.poll()
         if ev.type == pygame.KEYDOWN:
             if ev.key == pygame.K_RETURN:
-                msgs.append(ColumnWasClicked(0))
+                msgs.append(ColumnWasClicked(i))
+                i += 1
             elif ev.key == pygame.K_q:
                 break
         elif ev.type == pygame.QUIT:
