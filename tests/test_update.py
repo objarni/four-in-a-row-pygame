@@ -1,10 +1,11 @@
 from approvaltests import verify
 
 from src.four_in_a_row import (GameOverState, update, GameState, ColumnWasClicked, print_color,
-                               EMPTY, RED, YELLOW)
+                               EMPTY, RED, YELLOW, run_messages)
+import src.four_in_a_row
 
 
-def print_model(model):
+def print_for_verify(model):
     state_string = model.__class__.__name__ + '\n'
     if isinstance(model, GameOverState):
         state_string += f'{print_color(model.winner).title()} won.\n'
@@ -22,47 +23,45 @@ def print_model(model):
                 cell = board[pos]
                 state_string += symbols[cell] + ' '
             state_string += '\n'
-    return state_string
+    return f'STATE:\n{state_string}\n\nLOG:\n{log}'
+
+
+log = ''
+
+
+def fake_log(s):
+    global log
+    log += s + '\n'
+
+
+src.four_in_a_row.log = fake_log
+
+
+def setup_test():
+    global log
+    log = ''
 
 
 def test_first_placed_brick_is_red():
     model = GameState()
     model = update(model, ColumnWasClicked(0))
-    state_string = print_model(model)
-    verify(state_string)
+    verify(print_for_verify(model))
 
 
 def test_placing_4_bricks_in_first_column():
     model = GameState()
-    model = update(model, ColumnWasClicked(0))
-    model = update(model, ColumnWasClicked(0))
-    model = update(model, ColumnWasClicked(0))
-    model = update(model, ColumnWasClicked(0))
-    state_string = print_model(model)
-    verify(state_string)
+    model = run_messages(model, [ColumnWasClicked(0)] * 4)
+    verify(print_for_verify(model))
 
 
 def test_letting_red_win():
     model = GameState()
-    model = update(model, ColumnWasClicked(0))  # red
-    model = update(model, ColumnWasClicked(1))  # yellow
-    model = update(model, ColumnWasClicked(0))  # red
-    model = update(model, ColumnWasClicked(1))  # yellow
-    model = update(model, ColumnWasClicked(0))  # red
-    model = update(model, ColumnWasClicked(1))  # yellow
-    model = update(model, ColumnWasClicked(0))  # red
-    state_string = print_model(model)
-    verify(state_string)
+    msgs = [ColumnWasClicked(0), ColumnWasClicked(1)] * 3 + [ColumnWasClicked(0)]
+    model = run_messages(model, msgs)
+    verify(print_for_verify(model))
 
 
 def test_letting_red_win_horisontally():
     model = GameState()
-    model = update(model, ColumnWasClicked(0))  # red
-    model = update(model, ColumnWasClicked(5))  # yellow
-    model = update(model, ColumnWasClicked(1))  # red
-    model = update(model, ColumnWasClicked(5))  # yellow
-    model = update(model, ColumnWasClicked(2))  # red
-    model = update(model, ColumnWasClicked(5))  # yellow
-    model = update(model, ColumnWasClicked(3))  # red
-    state_string = print_model(model)
-    verify(state_string)
+    model = run_messages(model, [ColumnWasClicked(c) for c in [0, 5, 1, 5, 2, 5, 3]])
+    verify(print_for_verify(model))

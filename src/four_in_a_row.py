@@ -4,15 +4,11 @@ from collections import defaultdict
 DISC_SIZE = 80
 RED, YELLOW, EMPTY = range(3)
 WIDTH, HEIGHT = 1024, 768
+COLUMNS = 7
+ROWS = 6
 
 
 class Color:
-    WIDTH = 480
-    HEIGHT = 600
-    FPS = 60
-    POWERUP_TIME = 5000
-    BAR_LENGTH = 100
-    BAR_HEIGHT = 10
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
@@ -60,10 +56,10 @@ def update(model, msg):
 
 
 def place_brick(board, color, column):
-    print(f"Placing brick color {color}")
-    for i in range(6):
-        y = 5 - i
-        print(f"checking {column, y}")
+    log(f"Placing brick color {print_color(color)}")
+    for i in range(ROWS):
+        y = ROWS - i - 1
+        log(f"checking {column, y}")
         if board[(column, y)] == EMPTY:
             board[(column, y)] = color
             break
@@ -74,6 +70,15 @@ def print_color(color):
     return 'red' if color == RED else 'yellow'
 
 
+def check_winning_state(board, color):
+    for (x, y) in all_positions():
+        for dir in [(0, 1), (1, 0), (1, 1)]:
+            cells = extract(board, (x, y), dir)
+            if all(cell == color for cell in cells):
+                return True
+    return False
+
+
 def extract(board, pos, dir):
     cells = []
     for i in range(4):
@@ -82,28 +87,23 @@ def extract(board, pos, dir):
     return cells
 
 
-def check_winning_state(board, color):
-    for y in range(6):
-        for x in range(7):
-            for dir in [(0, 1), (1, 0), (1, 1)]:
-                cells = extract(board, (x, y), dir)
-                if all(cell == color for cell in cells):
-                    return True
-    return False
+def all_positions():
+    for y in range(ROWS):
+        for x in range(COLUMNS):
+            yield (x, y)
 
 
 def view(model, screen):
     if isinstance(model, GameState):
         screen.fill(Color.BLACK)
-        for y in range(6):
-            for x in range(7):
-                value = model.board[(x, y)]
-                if value != EMPTY:
-                    color = Color.RED if value == RED else Color.YELLOW
-                    x0 = int(WIDTH/2 - 7 * DISC_SIZE/2 + x * DISC_SIZE)
-                    y0 = int(HEIGHT/2 - 6 * DISC_SIZE/2 + y * DISC_SIZE)
-                    pos = (x0, y0)
-                    pygame.draw.circle(screen, color, pos, DISC_SIZE//2, DISC_SIZE//2)
+        for (x, y) in all_positions():
+            value = model.board[(x, y)]
+            if value != EMPTY:
+                color = Color.RED if value == RED else Color.YELLOW
+                x0 = int(WIDTH / 2 - COLUMNS * DISC_SIZE / 2 + x * DISC_SIZE)
+                y0 = int(HEIGHT / 2 - ROWS * DISC_SIZE / 2 + y * DISC_SIZE)
+                pos = (x0, y0)
+                pygame.draw.circle(screen, color, pos, DISC_SIZE // 2, DISC_SIZE // 2)
 
     draw_text(screen, "Press [ENTER] To Begin", 30, WIDTH / 2, HEIGHT / 2)
     draw_text(screen, "or [Q] To Quit", 30, WIDTH / 2, (HEIGHT / 2) + 40)
@@ -122,6 +122,10 @@ def draw_text(surf, text, size, x, y):
 import pygame
 
 
+def log(msg):
+    print(msg)
+
+
 def mainloop(screen):
     model = GameState()
     msgs = []
@@ -136,15 +140,19 @@ def mainloop(screen):
         elif ev.type == pygame.QUIT:
             break
 
-        # Handle events updating state
-        while len(msgs) > 0:
-            msg = msgs.pop(0)
-            model = update(model, msg)
+        # Handle events to update state
+        model = run_messages(model, msgs)
 
         # Display current model
         view(model, screen)
 
         pygame.display.update()
+
+
+def run_messages(model, msgs):
+    for msg in msgs:
+        model = update(model, msg)
+    return model
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+STATE:
 GameState
 It is reds turn.
 O O O O O O O 
@@ -6,3 +7,22 @@ Y O O O O O O
 R O O O O O O 
 Y O O O O O O 
 R O O O O O O 
+
+
+LOG:
+Placing brick color red
+checking (0, 5)
+Placing brick color red
+checking (0, 5)
+Placing brick color yellow
+checking (0, 5)
+checking (0, 4)
+Placing brick color red
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+Placing brick color yellow
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+checking (0, 2)

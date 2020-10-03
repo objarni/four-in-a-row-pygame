@@ -1,2 +1,62 @@
+STATE:
 GameOverState
 Red won.
+
+
+LOG:
+Placing brick color red
+checking (0, 5)
+Placing brick color red
+checking (0, 5)
+Placing brick color yellow
+checking (0, 5)
+checking (0, 4)
+Placing brick color red
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+Placing brick color yellow
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+checking (0, 2)
+Placing brick color red
+checking (0, 5)
+Placing brick color yellow
+checking (1, 5)
+Placing brick color red
+checking (0, 5)
+checking (0, 4)
+Placing brick color yellow
+checking (1, 5)
+checking (1, 4)
+Placing brick color red
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+Placing brick color yellow
+checking (1, 5)
+checking (1, 4)
+checking (1, 3)
+Placing brick color red
+checking (0, 5)
+checking (0, 4)
+checking (0, 3)
+checking (0, 2)
+Placing brick color red
+checking (0, 5)
+Placing brick color yellow
+checking (5, 5)
+Placing brick color red
+checking (1, 5)
+Placing brick color yellow
+checking (5, 5)
+checking (5, 4)
+Placing brick color red
+checking (2, 5)
+Placing brick color yellow
+checking (5, 5)
+checking (5, 4)
+checking (5, 3)
+Placing brick color red
+checking (3, 5)
