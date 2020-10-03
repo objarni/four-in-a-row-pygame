@@ -1,9 +1,9 @@
 from collections import defaultdict
 
 # CONSTANTS #
-DISC_SIZE = 130
+DISC_SIZE = 90
 RED, YELLOW, EMPTY = range(3)
-WIDTH, HEIGHT = 1200, 1200
+WIDTH, HEIGHT = 1100, 600
 CENTER = (WIDTH // 2, HEIGHT // 2)
 COLUMNS = 7
 ROWS = 6
@@ -93,6 +93,9 @@ def all_positions():
         for x in range(COLUMNS):
             yield (x, y)
 
+class DrawingAPI:
+    def __init__(self, screen):
+        self.screen = screen
 
 def view(model, screen):
     if isinstance(model, GameState):
@@ -112,6 +115,7 @@ def view(model, screen):
 
 
 def draw_disc(color, screen, x, y):
+    log(f'Drawing a disc at {x, y} color {color}')
     x0 = int(WIDTH / 2 - COLUMNS * DISC_SIZE / 2 + x * DISC_SIZE + DISC_SIZE // 2)
     y0 = int(HEIGHT / 2 - ROWS * DISC_SIZE / 2 + y * DISC_SIZE + DISC_SIZE // 2)
     pos = (x0, y0)
@@ -137,6 +141,7 @@ def log(msg):
 
 def mainloop(screen):
     model = GameState()
+    drawing_api = DrawingAPI(screen)
     i = 0
     while True:
         # Translate low level events to domain events
