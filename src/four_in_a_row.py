@@ -176,12 +176,12 @@ def convert_to_column(x):
 
 
 def view(model, api):
+    if isinstance(model, StartScreenState):
+        view_startscreenstate(api)
     if isinstance(model, GameState):
         view_gamestate(api, model)
     if isinstance(model, GameOverState):
         view_gameoverstate(api, model)
-    if isinstance(model, StartScreenState):
-        view_startscreenstate(api)
 
 
 def view_startscreenstate(api):
@@ -200,7 +200,7 @@ def view_gamestate(api, model):
     api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
     column = convert_to_column(model.mouse_pos[0])
     if column is not None:
-        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
+        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS // 2)
         api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     else:
         api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
@@ -301,10 +301,15 @@ def run_messages(model, msgs):
     return model
 
 
-if __name__ == '__main__':
+def main():
+    global api
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Four in a row")
     api = DrawingAPI(screen)
     mainloop(api)
     pygame.quit()
+
+
+if __name__ == '__main__':
+    main()
