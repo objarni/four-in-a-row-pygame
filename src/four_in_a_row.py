@@ -1,16 +1,21 @@
 from collections import defaultdict
 import pygame
 
-# CONSTANTS #
-DISC_SIZE = 90
-RED, YELLOW, EMPTY = range(3)
-WIDTH, HEIGHT = 1100, 800
-CENTER = (WIDTH // 2, HEIGHT // 2)
-CENTER_X, CENTER_Y = CENTER
+# CONSTANTS, Game Logic #
 COLUMNS = 7
 ROWS = 6
-BOARD_WIDTH = DISC_SIZE * COLUMNS
-BOARD_HEIGHT = DISC_SIZE * ROWS
+RED, YELLOW, EMPTY = range(3)
+
+# CONSTANTS, Graphics #
+WIDTH, HEIGHT = 1100, 800
+DISC_DIAMETER = 90
+DISC_RADIUS = DISC_DIAMETER // 2
+BIG_TEXT = 45
+MID_TEXT = 30
+CENTER = (WIDTH // 2, HEIGHT // 2)
+CENTER_X, CENTER_Y = CENTER
+BOARD_WIDTH = DISC_DIAMETER * COLUMNS
+BOARD_HEIGHT = DISC_DIAMETER * ROWS
 BOARD_LEFT = (WIDTH - BOARD_WIDTH) // 2
 BOARD_RIGHT = (WIDTH + BOARD_WIDTH) // 2
 
@@ -173,7 +178,7 @@ def convert_to_column(x):
         return None
     if x > BOARD_RIGHT:
         return None
-    return (x - BOARD_LEFT) // DISC_SIZE
+    return (x - BOARD_LEFT) // DISC_DIAMETER
 
 
 def view(model, api):
@@ -187,46 +192,53 @@ def view(model, api):
 
 def view_startscreenstate(api):
     api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.GREEN)
-    api.draw_text((CENTER_X - 2, CENTER_Y - 45 - 2), "FOUR-IN-A-ROW", 45, Color.WHITE)
-    api.draw_text((CENTER_X, CENTER_Y - 45), "FOUR-IN-A-ROW", 45, Color.BLACK)
-    api.draw_text((CENTER_X, CENTER_Y + 45), "Click left mouse button to play!", 45, Color.BLACK)
+    api.draw_text((CENTER_X - 2, CENTER_Y - BIG_TEXT - 2), "FOUR-IN-A-ROW", BIG_TEXT, Color.WHITE)
+    api.draw_text((CENTER_X, CENTER_Y - BIG_TEXT), "FOUR-IN-A-ROW", BIG_TEXT, Color.BLACK)
+    api.draw_text((CENTER_X, CENTER_Y + BIG_TEXT), "Click left mouse button to play!", BIG_TEXT,
+                  Color.BLACK)
     for i in range(4):
-        bigger_disc = int(DISC_SIZE * 0.75)
-        api.draw_disc((40 + i * (DISC_SIZE + 5), 100), bigger_disc, Color.YELLOW)
-        api.draw_disc((WIDTH - 40 - i * (DISC_SIZE + 5), HEIGHT - 100), bigger_disc, Color.RED)
+        bigger_disc = int(DISC_DIAMETER * 0.75)
+        api.draw_disc((40 + i * (DISC_DIAMETER + 5), 100), bigger_disc, Color.YELLOW)
+        api.draw_disc((WIDTH - 40 - i * (DISC_DIAMETER + 5), HEIGHT - 100), bigger_disc, Color.RED)
 
 
 def view_gamestate(api, model):
     api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
     column = convert_to_column(model.mouse_pos[0])
     if column is not None:
-        pos = (BOARD_LEFT + DISC_SIZE * column + DISC_SIZE // 2, CENTER_Y - BOARD_HEIGHT // 2 - DISC_SIZE // 2)
-        api.draw_disc(pos, DISC_SIZE // 2, rgb_from_color(model.whos_turn_is_it))
+        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
+        api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     else:
-        api.draw_disc(model.mouse_pos, DISC_SIZE // 2, rgb_from_color(model.whos_turn_is_it))
-    api.draw_rectangle(CENTER, (DISC_SIZE * COLUMNS + 20, DISC_SIZE * ROWS + 20), Color.BLUE)
+        api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
+    api.draw_rectangle(CENTER, (DISC_DIAMETER * COLUMNS + 20, DISC_DIAMETER * ROWS + 20), Color.BLUE)
     for (x, y) in all_positions():
         value = model.board[(x, y)]
         color = Color.BLACK
         if value != EMPTY:
             color = rgb_from_color(value)
-        x0 = int(WIDTH / 2 - COLUMNS * DISC_SIZE / 2 + x * DISC_SIZE + DISC_SIZE // 2)
-        y0 = int(HEIGHT / 2 - ROWS * DISC_SIZE / 2 + y * DISC_SIZE + DISC_SIZE // 2)
+        x0 = int(WIDTH / 2 - COLUMNS * DISC_DIAMETER / 2 + x * DISC_DIAMETER + DISC_RADIUS)
+        y0 = int(HEIGHT / 2 - ROWS * DISC_DIAMETER / 2 + y * DISC_DIAMETER + DISC_RADIUS)
         pos = (x0, y0)
-        api.draw_disc(pos, DISC_SIZE // 2, color)
-    api.draw_text((WIDTH // 2, 20), f"{model.whos_turn().title()} to place disc", 30, Color.WHITE)
+        api.draw_disc(pos, DISC_RADIUS, color)
+    api.draw_text((WIDTH // 2, 20), f"{model.whos_turn().title()} to place disc", MID_TEXT, Color.WHITE)
     api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
     api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
 
 
 def view_gameoverstate(api, model):
     api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLUE)
-    api.draw_text((CENTER_X, CENTER_Y - 45), f"GAME OVER", 45, Color.WHITE)
-    api.draw_text((CENTER_X, CENTER_Y + 45),
-                  f"{print_color(model.winner)} won!".upper(),
-                  45,
-                  rgb_from_color(model.winner)
-                  )
+    api.draw_text(
+        (CENTER_X, CENTER_Y - BIG_TEXT),
+        f"GAME OVER",
+        BIG_TEXT,
+        Color.WHITE
+    )
+    api.draw_text(
+        (CENTER_X, CENTER_Y + BIG_TEXT),
+        f"{print_color(model.winner)} won!".upper(),
+        BIG_TEXT,
+        rgb_from_color(model.winner)
+    )
 
 
 def rgb_from_color(color):
