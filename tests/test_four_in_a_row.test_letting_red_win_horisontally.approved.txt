@@ -82,6 +82,6 @@ O O O O O Y O
 R R R R O Y O 
 
 Found 4-in-a-row at (0, 5) dir (1, 0)
-Drawing rectangle center (550, 300) size (1100, 600) color (0, 0, 255)
-Drawing text 'GAME OVER' at (550, 255) color (255, 255, 255) size 45
-Drawing text 'RED WON!' at (550, 345) color (255, 0, 0) size 45
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 255)
+Drawing text 'GAME OVER' at (550, 355) color (255, 255, 255) size 45
+Drawing text 'RED WON!' at (550, 445) color (255, 0, 0) size 45

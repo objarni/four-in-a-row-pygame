@@ -4,7 +4,7 @@ import pygame
 # CONSTANTS #
 DISC_SIZE = 90
 RED, YELLOW, EMPTY = range(3)
-WIDTH, HEIGHT = 1100, 600
+WIDTH, HEIGHT = 1100, 800
 CENTER = (WIDTH // 2, HEIGHT // 2)
 COLUMNS = 7
 ROWS = 6
@@ -25,6 +25,7 @@ class GameState(object):
     def __init__(self):
         self.board = defaultdict(lambda: EMPTY)
         self.whos_turn_is_it = RED
+        self.mouse_pos = CENTER
 
     def whos_turn(self):
         return print_color(self.whos_turn_is_it)
@@ -51,10 +52,17 @@ class ColumnWasClicked(object):
         self.column = column
 
 
+class MouseMovedTo(object):
+    def __init__(self, pos):
+        self.pos = pos
+
+
 # FUNCTIONS #
 
 def update(model, msg):
     if isinstance(model, GameState):
+        if isinstance(msg, MouseMovedTo):
+            model.mouse_pos = msg.pos
         if isinstance(msg, ColumnWasClicked):
             column = msg.column
             model.board = place_brick(model.board, model.whos_turn_is_it, column)
@@ -169,6 +177,7 @@ def view(model, api):
             pos = (x0, y0)
             api.draw_disc(pos, DISC_SIZE // 2, color)
         api.draw_text((WIDTH // 2, 20), f"{model.whos_turn().title()} to place disc", 30, Color.WHITE)
+        api.draw_disc(model.mouse_pos, DISC_SIZE // 2, rgb_from_color(model.whos_turn_is_it))
     if isinstance(model, GameOverState):
         api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLUE)
         api.draw_text((CENTER[0], CENTER[1] - 45), f"GAME OVER", 45, Color.WHITE)
@@ -179,8 +188,13 @@ def view(model, api):
                       )
     if isinstance(model, StartScreenState):
         api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.GREEN)
+        api.draw_text((CENTER[0] - 2, CENTER[1] - 45 - 2), "FOUR-IN-A-ROW", 45, Color.WHITE)
         api.draw_text((CENTER[0], CENTER[1] - 45), "FOUR-IN-A-ROW", 45, Color.BLACK)
         api.draw_text((CENTER[0], CENTER[1] + 45), "Click left mouse button to play!", 45, Color.BLACK)
+        for i in range(4):
+            bigger_disc = int(DISC_SIZE * 0.75)
+            api.draw_disc((40 + i * (DISC_SIZE + 5), 100), bigger_disc, Color.YELLOW)
+            api.draw_disc((WIDTH - 40 - i * (DISC_SIZE + 5), HEIGHT - 100), bigger_disc, Color.RED)
 
 
 def rgb_from_color(color):
@@ -202,6 +216,7 @@ def print_model(model):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
         state_string += f'It is {model.whos_turn()}s turn.\n'
+        state_string += f'The mouse is at {model.mouse_pos}.\n'
         state_string += board_to_string(model.board)
     return state_string
 
@@ -215,14 +230,15 @@ def mainloop(drawing_api):
         msgs = []
         ev = pygame.event.poll()
         if ev.type == pygame.MOUSEBUTTONDOWN:
-            print(f"Got click {ev}")
             pos = ev.pos
             button = ev.button
             if button == 1:
                 msgs.append(LeftMouseClickAt(pos))
+        if ev.type == pygame.MOUSEMOTION:
+            msgs.append(MouseMovedTo(ev.pos))
         if ev.type == pygame.KEYDOWN:
             if ev.key == pygame.K_RETURN:
-                msgs.append(ColumnWasClicked(i % 2))
+                msgs.append(ColumnWasClicked(i % 2))  # TODO: how to translate to this "Domain Event" from low-level?
                 i += 1
             elif ev.key == pygame.K_q:
                 break
@@ -233,7 +249,7 @@ def mainloop(drawing_api):
         old_model_repr = print_model(model)
         model = run_messages(model, msgs)
 
-        # Display current model
+        # Display current model, if any change found
         if old_model_repr != print_model(model):
             view(model, api)
 

@@ -1,8 +1,9 @@
 from approvaltests import verify
 
-from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, run_messages, StartScreenState,
-                               LeftMouseClickAt,
-                               print_model)
+from src.four_in_a_row import (GameOverState,GameState, StartScreenState,
+                               update, view, ColumnWasClicked, run_messages,
+                               LeftMouseClickAt, MouseMovedTo,
+                                print_model)
 import src.four_in_a_row
 
 
@@ -108,4 +109,10 @@ def test_startscreen():
 def test_startscreen_to_game_transition():
     model = StartScreenState()
     model = run_messages(model, [LeftMouseClickAt((1, 1))])
+    verify(print_for_verify(model))
+
+
+def test_mouse_movement_over_game_screen():
+    model = GameState()
+    model = run_messages(model, [MouseMovedTo((x, x)) for x in range(0, 500, 10)])
     verify(print_for_verify(model))
