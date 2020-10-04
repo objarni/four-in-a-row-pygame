@@ -77,12 +77,10 @@ def update(model, msg):
             column = msg.column
             model.board = place_brick(model.board, model.whos_turn_is_it, column)
             model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
-            won = check_winning_state(model.board, RED)
-            if won:
-                return GameOverState(winner=RED)
-            won = check_winning_state(model.board, YELLOW)
-            if won:
-                return GameOverState(winner=YELLOW)
+            for color in [RED, YELLOW]:
+                won = check_winning_state(model.board, color)
+                if won:
+                    return GameOverState(winner=color)
     if isinstance(model, StartScreenState):
         if isinstance(msg, LeftMouseClickAt):
             return GameState()
@@ -111,12 +109,8 @@ def board_to_string(board):
     }
     board_string += "0 1 2 3 4 5 6\n"
     board_string += "-------------\n"
-    for y in range(6):
-        for x in range(7):
-            pos = (x, y)
-            cell = board[pos]
-            board_string += symbols[cell] + ' '
-        board_string += '\n'
+    for y in range(ROWS):
+        board_string += ' '.join(symbols[board[(x, y)]] for x in range(COLUMNS)) + '\n'
     return board_string
 
 
@@ -125,7 +119,7 @@ def print_color(color):
 
 
 def check_winning_state(board, color):
-    for (x, y) in all_positions():
+    for (x, y) in positions_in_print_order():
         for dir in [(0, 1), (1, 0), (1, 1), (-1, 1)]:
             cells = extract(board, (x, y), dir)
             if all(cell == color for cell in cells):
@@ -142,7 +136,7 @@ def extract(board, pos, dir):
     return cells
 
 
-def all_positions():
+def positions_in_print_order():
     for y in range(ROWS):
         for x in range(COLUMNS):
             yield (x, y)
@@ -211,7 +205,7 @@ def view_gamestate(api, model):
     else:
         api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     api.draw_rectangle(CENTER, (DISC_DIAMETER * COLUMNS + 20, DISC_DIAMETER * ROWS + 20), Color.BLUE)
-    for (x, y) in all_positions():
+    for (x, y) in positions_in_print_order():
         value = model.board[(x, y)]
         color = Color.BLACK
         if value != EMPTY:
