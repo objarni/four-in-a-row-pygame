@@ -1,7 +1,7 @@
 from approvaltests import verify
 
-from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, print_color,
-                               run_messages, board_to_string)
+from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, run_messages, StartScreenState, LeftMouseClickAt,
+                               print_model)
 import src.four_in_a_row
 
 
@@ -25,16 +25,6 @@ def print_for_verify(model):
 def fake_view_model(model):
     fake_drawing_api = FakeDrawingApi()
     view(model, fake_drawing_api)
-
-
-def print_model(model):
-    state_string = model.__class__.__name__ + '\n'
-    if isinstance(model, GameOverState):
-        state_string += f'{print_color(model.winner).title()} won.\n'
-    if isinstance(model, GameState):
-        state_string += f'It is {model.whos_turn()}s turn.\n'
-        state_string += board_to_string(model.board)
-    return state_string
 
 
 log = ''
@@ -106,4 +96,10 @@ def test_backslash_yellow_win():
         5, 3,
         0, 3,
         0, 3]])
+    verify(print_for_verify(model))
+
+
+def test_startscreen_to_game_transition():
+    model = StartScreenState()
+    model = run_messages(model, [LeftMouseClickAt((1, 1))])
     verify(print_for_verify(model))

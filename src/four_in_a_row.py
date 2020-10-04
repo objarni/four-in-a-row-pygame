@@ -35,7 +35,16 @@ class GameOverState(object):
         self.winner = winner
 
 
+class StartScreenState(object):
+    pass
+
+
 # MESSAGES #
+
+class LeftMouseClickAt(object):
+    def __init__(self, pos):
+        self.pos = pos
+
 
 class ColumnWasClicked(object):
     def __init__(self, column):
@@ -56,6 +65,9 @@ def update(model, msg):
             won = check_winning_state(model.board, YELLOW)
             if won:
                 return GameOverState(winner=YELLOW)
+    if isinstance(model, StartScreenState):
+        if isinstance(msg, LeftMouseClickAt):
+            return GameState()
 
     return model
 
@@ -165,6 +177,10 @@ def view(model, api):
                       45,
                       rgb_from_color(model.winner)
                       )
+    if isinstance(model, StartScreenState):
+        api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.GREEN)
+        api.draw_text((CENTER[0], CENTER[1] - 45), "FOUR-IN-A-ROW", 45, Color.WHITE)
+        api.draw_text((CENTER[0], CENTER[1] + 45), "Click left mouse button to play!", 45, Color.WHITE)
 
 
 def rgb_from_color(color):
@@ -178,13 +194,32 @@ def log(msg):
     print(msg)
 
 
+def print_model(model):
+    state_string = model.__class__.__name__ + '\n'
+    if isinstance(model, StartScreenState):
+        pass
+    if isinstance(model, GameOverState):
+        state_string += f'{print_color(model.winner).title()} won.\n'
+    if isinstance(model, GameState):
+        state_string += f'It is {model.whos_turn()}s turn.\n'
+        state_string += board_to_string(model.board)
+    return state_string
+
+
 def mainloop(drawing_api):
-    model = GameState()
+    model = StartScreenState()
     i = 0
+    view(model, drawing_api)
     while True:
         # Translate low level events to domain events
         msgs = []
         ev = pygame.event.poll()
+        if ev.type == pygame.MOUSEBUTTONDOWN:
+            print(f"Got click {ev}")
+            pos = ev.pos
+            button = ev.button
+            if button == 1:
+                msgs.append(LeftMouseClickAt(pos))
         if ev.type == pygame.KEYDOWN:
             if ev.key == pygame.K_RETURN:
                 msgs.append(ColumnWasClicked(i % 2))
@@ -195,10 +230,12 @@ def mainloop(drawing_api):
             break
 
         # Handle events to update state
+        old_model_repr = print_model(model)
         model = run_messages(model, msgs)
 
         # Display current model
-        view(model, api)
+        if old_model_repr != print_model(model):
+            view(model, api)
 
         pygame.display.update()
 
