@@ -1,6 +1,7 @@
 from approvaltests import verify
 
-from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, run_messages, StartScreenState, LeftMouseClickAt,
+from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, run_messages, StartScreenState,
+                               LeftMouseClickAt,
                                print_model)
 import src.four_in_a_row
 
@@ -96,6 +97,11 @@ def test_backslash_yellow_win():
         5, 3,
         0, 3,
         0, 3]])
+    verify(print_for_verify(model))
+
+
+def test_startscreen():
+    model = StartScreenState()
     verify(print_for_verify(model))
 
 

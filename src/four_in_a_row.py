@@ -179,8 +179,8 @@ def view(model, api):
                       )
     if isinstance(model, StartScreenState):
         api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.GREEN)
-        api.draw_text((CENTER[0], CENTER[1] - 45), "FOUR-IN-A-ROW", 45, Color.WHITE)
-        api.draw_text((CENTER[0], CENTER[1] + 45), "Click left mouse button to play!", 45, Color.WHITE)
+        api.draw_text((CENTER[0], CENTER[1] - 45), "FOUR-IN-A-ROW", 45, Color.BLACK)
+        api.draw_text((CENTER[0], CENTER[1] + 45), "Click left mouse button to play!", 45, Color.BLACK)
 
 
 def rgb_from_color(color):
