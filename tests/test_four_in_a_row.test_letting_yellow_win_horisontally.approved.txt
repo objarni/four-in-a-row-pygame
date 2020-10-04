@@ -8,89 +8,89 @@ Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
 
 Placing brick color yellow in column 1
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R Y O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R Y O O O O O
 
 Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R Y O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R Y O O O O O
 
 Placing brick color yellow in column 2
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R Y Y O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R Y Y O O O O
 
 Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R O O O O O O 
-R Y Y O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R O O O O O O
+R Y Y O O O O
 
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R O O O O O O 
-R Y Y Y O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R O O O O O O
+R Y Y Y O O O
 
 Placing brick color red in column 1
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R R O O O O O 
-R Y Y Y O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R R O O O O O
+R Y Y Y O O O
 
 Placing brick color yellow in column 4
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
-R R O O O O O 
-R Y Y Y Y O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+R R O O O O O
+R Y Y Y Y O O
 
 Found 4-in-a-row at (1, 5) dir (1, 0)
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 255)

@@ -8,78 +8,78 @@ Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
 
 Placing brick color yellow in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O Y O
 
 Placing brick color red in column 1
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R R O O O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R R O O O Y O
 
 Placing brick color yellow in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-R R O O O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+R R O O O Y O
 
 Placing brick color red in column 2
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-R R R O O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+R R R O O Y O
 
 Placing brick color yellow in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-O O O O O Y O 
-R R R O O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+O O O O O Y O
+R R R O O Y O
 
 Placing brick color red in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-O O O O O Y O 
-R R R R O Y O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+O O O O O Y O
+R R R R O Y O
 
 Found 4-in-a-row at (0, 5) dir (1, 0)
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 255)

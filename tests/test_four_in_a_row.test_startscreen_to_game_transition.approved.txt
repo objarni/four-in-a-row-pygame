@@ -4,12 +4,12 @@ It is reds turn.
 The mouse is at (550, 400).
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
 
 
 LOG:

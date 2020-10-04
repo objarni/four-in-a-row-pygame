@@ -8,155 +8,155 @@ Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O O 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
 
 Placing brick color yellow in column 6
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O O Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O Y
 
 Placing brick color red in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O O O R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O R Y
 
 Placing brick color yellow in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-R O O O O R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+R O O O O R Y
 
 Placing brick color red in column 4
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O Y O 
-R O O O R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+R O O O R R Y
 
 Placing brick color yellow in column 4
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y Y O 
-R O O O R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y Y O
+R O O O R R Y
 
 Placing brick color red in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y Y O
+R O O R R R Y
 
 Placing brick color yellow in column 4
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y O O 
-O O O O Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y O O
+O O O O Y Y O
+R O O R R R Y
 
 Placing brick color red in column 5
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y R O 
-O O O O Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y R O
+O O O O Y Y O
+R O O R R R Y
 
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y R O 
-O O O Y Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y R O
+O O O Y Y Y O
+R O O R R R Y
 
 Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O O Y R O 
-R O O Y Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O Y R O
+R O O Y Y Y O
+R O O R R R Y
 
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-O O O Y Y R O 
-R O O Y Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O Y Y R O
+R O O Y Y Y O
+R O O R R R Y
 
 Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O O O O O 
-R O O Y Y R O 
-R O O Y Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O Y Y R O
+R O O Y Y Y O
+R O O R R R Y
 
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
 -------------
-O O O O O O O 
-O O O O O O O 
-O O O Y O O O 
-R O O Y Y R O 
-R O O Y Y Y O 
-R O O R R R Y 
+O O O O O O O
+O O O O O O O
+O O O Y O O O
+R O O Y Y R O
+R O O Y Y Y O
+R O O R R R Y
 
 Found 4-in-a-row at (3, 2) dir (1, 1)
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 255)
