@@ -4,59 +4,84 @@ Red won.
 
 
 LOG:
-Placing brick color red
-checking (0, 5)
-Placing brick color red
-checking (0, 5)
-Placing brick color yellow
-checking (0, 5)
-checking (0, 4)
-Placing brick color red
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-Placing brick color yellow
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-checking (0, 2)
-Placing brick color red
-checking (0, 5)
-Placing brick color yellow
-checking (1, 5)
-Placing brick color red
-checking (0, 5)
-checking (0, 4)
-Placing brick color yellow
-checking (1, 5)
-checking (1, 4)
-Placing brick color red
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-Placing brick color yellow
-checking (1, 5)
-checking (1, 4)
-checking (1, 3)
-Placing brick color red
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-checking (0, 2)
-Placing brick color red
-checking (0, 5)
-Placing brick color yellow
-checking (5, 5)
-Placing brick color red
-checking (1, 5)
-Placing brick color yellow
-checking (5, 5)
-checking (5, 4)
-Placing brick color red
-checking (2, 5)
-Placing brick color yellow
-checking (5, 5)
-checking (5, 4)
-checking (5, 3)
-Placing brick color red
-checking (3, 5)
+Placing brick color red in column 0
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+R O O O O O O 
+
+Placing brick color yellow in column 5
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+R O O O O Y O 
+
+Placing brick color red in column 1
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+R R O O O Y O 
+
+Placing brick color yellow in column 5
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O Y O 
+R R O O O Y O 
+
+Placing brick color red in column 2
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O Y O 
+R R R O O Y O 
+
+Placing brick color yellow in column 5
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O Y O 
+O O O O O Y O 
+R R R O O Y O 
+
+Placing brick color red in column 3
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O Y O 
+O O O O O Y O 
+R R R R O Y O 
+
+Found 4-in-a-row at (0, 5) dir (1, 0)
+Drawing rectangle center (550, 300) size (1100, 600) color (0, 0, 255)
+Drawing text 'GAME OVER' at (550, 255) color (255, 255, 255) size 45
+Drawing text 'RED WON!' at (550, 345) color (255, 0, 0) size 45

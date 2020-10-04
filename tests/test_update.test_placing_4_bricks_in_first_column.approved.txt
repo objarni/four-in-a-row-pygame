@@ -1,6 +1,8 @@
 STATE:
 GameState
 It is reds turn.
+0 1 2 3 4 5 6
+-------------
 O O O O O O O 
 O O O O O O O 
 Y O O O O O O 
@@ -10,19 +12,92 @@ R O O O O O O
 
 
 LOG:
-Placing brick color red
-checking (0, 5)
-Placing brick color red
-checking (0, 5)
-Placing brick color yellow
-checking (0, 5)
-checking (0, 4)
-Placing brick color red
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-Placing brick color yellow
-checking (0, 5)
-checking (0, 4)
-checking (0, 3)
-checking (0, 2)
+Placing brick color red in column 0
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+R O O O O O O 
+
+Placing brick color yellow in column 0
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+Y O O O O O O 
+R O O O O O O 
+
+Placing brick color red in column 0
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+O O O O O O O 
+R O O O O O O 
+Y O O O O O O 
+R O O O O O O 
+
+Placing brick color yellow in column 0
+Board state is now:
+0 1 2 3 4 5 6
+-------------
+O O O O O O O 
+O O O O O O O 
+Y O O O O O O 
+R O O O O O O 
+Y O O O O O O 
+R O O O O O O 
+
+Drawing rectangle center (550, 300) size (1100, 600) color (0, 0, 0)
+Drawing rectangle center (550, 300) size (650, 560) color (0, 0, 255)
+Drawing a disc center (280, 75) size 45 color (0, 0, 0)
+Drawing a disc center (370, 75) size 45 color (0, 0, 0)
+Drawing a disc center (460, 75) size 45 color (0, 0, 0)
+Drawing a disc center (550, 75) size 45 color (0, 0, 0)
+Drawing a disc center (640, 75) size 45 color (0, 0, 0)
+Drawing a disc center (730, 75) size 45 color (0, 0, 0)
+Drawing a disc center (820, 75) size 45 color (0, 0, 0)
+Drawing a disc center (280, 165) size 45 color (0, 0, 0)
+Drawing a disc center (370, 165) size 45 color (0, 0, 0)
+Drawing a disc center (460, 165) size 45 color (0, 0, 0)
+Drawing a disc center (550, 165) size 45 color (0, 0, 0)
+Drawing a disc center (640, 165) size 45 color (0, 0, 0)
+Drawing a disc center (730, 165) size 45 color (0, 0, 0)
+Drawing a disc center (820, 165) size 45 color (0, 0, 0)
+Drawing a disc center (280, 255) size 45 color (255, 255, 0)
+Drawing a disc center (370, 255) size 45 color (0, 0, 0)
+Drawing a disc center (460, 255) size 45 color (0, 0, 0)
+Drawing a disc center (550, 255) size 45 color (0, 0, 0)
+Drawing a disc center (640, 255) size 45 color (0, 0, 0)
+Drawing a disc center (730, 255) size 45 color (0, 0, 0)
+Drawing a disc center (820, 255) size 45 color (0, 0, 0)
+Drawing a disc center (280, 345) size 45 color (255, 0, 0)
+Drawing a disc center (370, 345) size 45 color (0, 0, 0)
+Drawing a disc center (460, 345) size 45 color (0, 0, 0)
+Drawing a disc center (550, 345) size 45 color (0, 0, 0)
+Drawing a disc center (640, 345) size 45 color (0, 0, 0)
+Drawing a disc center (730, 345) size 45 color (0, 0, 0)
+Drawing a disc center (820, 345) size 45 color (0, 0, 0)
+Drawing a disc center (280, 435) size 45 color (255, 255, 0)
+Drawing a disc center (370, 435) size 45 color (0, 0, 0)
+Drawing a disc center (460, 435) size 45 color (0, 0, 0)
+Drawing a disc center (550, 435) size 45 color (0, 0, 0)
+Drawing a disc center (640, 435) size 45 color (0, 0, 0)
+Drawing a disc center (730, 435) size 45 color (0, 0, 0)
+Drawing a disc center (820, 435) size 45 color (0, 0, 0)
+Drawing a disc center (280, 525) size 45 color (255, 0, 0)
+Drawing a disc center (370, 525) size 45 color (0, 0, 0)
+Drawing a disc center (460, 525) size 45 color (0, 0, 0)
+Drawing a disc center (550, 525) size 45 color (0, 0, 0)
+Drawing a disc center (640, 525) size 45 color (0, 0, 0)
+Drawing a disc center (730, 525) size 45 color (0, 0, 0)
+Drawing a disc center (820, 525) size 45 color (0, 0, 0)
+Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30

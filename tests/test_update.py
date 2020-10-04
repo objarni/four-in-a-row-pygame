@@ -1,29 +1,40 @@
 from approvaltests import verify
 
-from src.four_in_a_row import (GameOverState, update, GameState, ColumnWasClicked, print_color,
-                               EMPTY, RED, YELLOW, run_messages)
+from src.four_in_a_row import (GameOverState, update, view, GameState, ColumnWasClicked, print_color,
+                               run_messages, board_to_string)
 import src.four_in_a_row
 
 
+class FakeDrawingApi:
+    def draw_rectangle(self, center, size, color):
+        src.four_in_a_row.log(f"Drawing rectangle center {center} size {size} color {color}")
+
+    def draw_disc(self, center, size, color):
+        src.four_in_a_row.log(f'Drawing a disc center {center} size {size} color {color}')
+
+    def draw_text(self, center, text, size, color):
+        src.four_in_a_row.log(f"Drawing text '{text}' at {center} color {color} size {size}")
+
+
 def print_for_verify(model):
+    state_string = print_model(model)
+    fake_view_model(model)
+    return f'STATE:\n{state_string}\n\nLOG:\n{log}'
+
+
+def fake_view_model(model):
+    fake_drawing_api = FakeDrawingApi()
+    view(model, fake_drawing_api)
+
+
+def print_model(model):
     state_string = model.__class__.__name__ + '\n'
     if isinstance(model, GameOverState):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
         state_string += f'It is {model.whos_turn()}s turn.\n'
-        symbols = {
-            EMPTY: 'O',
-            RED: 'R',
-            YELLOW: 'Y'
-        }
-        for y in range(6):
-            for x in range(7):
-                pos = (x, y)
-                board = model.board
-                cell = board[pos]
-                state_string += symbols[cell] + ' '
-            state_string += '\n'
-    return f'STATE:\n{state_string}\n\nLOG:\n{log}'
+        state_string += board_to_string(model.board)
+    return state_string
 
 
 log = ''
@@ -37,7 +48,7 @@ def fake_log(s):
 src.four_in_a_row.log = fake_log
 
 
-def setup_test():
+def setup_function():
     global log
     log = ''
 
@@ -64,4 +75,35 @@ def test_letting_red_win():
 def test_letting_red_win_horisontally():
     model = GameState()
     model = run_messages(model, [ColumnWasClicked(c) for c in [0, 5, 1, 5, 2, 5, 3]])
+    verify(print_for_verify(model))
+
+
+def test_letting_yellow_win_horisontally():
+    model = GameState()
+    model = run_messages(model, [ColumnWasClicked(c) for c in [0, 1, 0, 2, 0, 3, 1, 4]])
+    verify(print_for_verify(model))
+
+
+def test_slash_red_win():
+    model = GameState()
+    model = run_messages(model, [ColumnWasClicked(c) for c in [
+        0, 1,
+        1, 2,
+        2, 3,
+        2, 3,
+        3, 5,
+        3]])
+    verify(print_for_verify(model))
+
+
+def test_backslash_yellow_win():
+    model = GameState()
+    model = run_messages(model, [ColumnWasClicked(c) for c in [
+        0, 6,
+        5, 5,
+        4, 4,
+        3, 4,
+        5, 3,
+        0, 3,
+        0, 3]])
     verify(print_for_verify(model))
