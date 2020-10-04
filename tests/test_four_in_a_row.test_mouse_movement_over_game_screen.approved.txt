@@ -14,6 +14,7 @@ O O O O O O O
 
 LOG:
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -58,4 +59,5 @@ Drawing a disc center (640, 625) size 45 color (0, 0, 0)
 Drawing a disc center (730, 625) size 45 color (0, 0, 0)
 Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
-Drawing a disc center (490, 490) size 45 color (255, 0, 0)
+Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
+Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
