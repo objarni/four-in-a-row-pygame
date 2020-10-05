@@ -13,6 +13,19 @@ O O O O O O O
 
 
 LOG:
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 255, 0)
+Drawing text 'FOUR-IN-A-ROW' at (548, 353) color (255, 255, 255) size 45
+Drawing text 'FOUR-IN-A-ROW' at (550, 355) color (0, 0, 0) size 45
+Drawing text 'Click left mouse button to play!' at (550, 445) color (0, 0, 0) size 45
+Drawing a disc center (40, 100) size 67 color (255, 255, 0)
+Drawing a disc center (1060, 700) size 67 color (255, 0, 0)
+Drawing a disc center (135, 100) size 67 color (255, 255, 0)
+Drawing a disc center (965, 700) size 67 color (255, 0, 0)
+Drawing a disc center (230, 100) size 67 color (255, 255, 0)
+Drawing a disc center (870, 700) size 67 color (255, 0, 0)
+Drawing a disc center (325, 100) size 67 color (255, 255, 0)
+Drawing a disc center (775, 700) size 67 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)

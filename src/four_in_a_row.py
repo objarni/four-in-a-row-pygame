@@ -174,7 +174,6 @@ def convert_to_column(x):
         return None
     return (x - BOARD_LEFT) // DISC_DIAMETER
 
-
 def view(model, api):
     if isinstance(model, StartScreenState):
         view_startscreenstate(api)
@@ -200,7 +199,7 @@ def view_gamestate(api, model):
     api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
     column = convert_to_column(model.mouse_pos[0])
     if column is not None:
-        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS // 2)
+        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
         api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     else:
         api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
@@ -264,41 +263,39 @@ def mainloop(drawing_api):
     model = StartScreenState()
     i = 0
     view(model, drawing_api)
+    pygame.display.update()
     while True:
-        # Translate low level events to domain events
-        msgs = []
-        ev = pygame.event.poll()
-        if ev.type == pygame.MOUSEBUTTONDOWN:
-            pos = ev.pos
-            button = ev.button
-            if button == 1:
-                msgs.append(LeftMouseClickAt(pos))
-        if ev.type == pygame.MOUSEMOTION:
-            msgs.append(MouseMovedTo(ev.pos))
-        if ev.type == pygame.KEYDOWN:
-            if ev.key == pygame.K_RETURN:
-                msgs.append(ColumnWasClicked(i % 2))  # TODO: how to translate to this "Domain Event" from low-level?
-                i += 1
-            elif ev.key == pygame.K_q:
-                break
-        elif ev.type == pygame.QUIT:
-            break
-
-        # Handle events to update state
         old_model_repr = print_model(model)
-        model = run_messages(model, msgs)
+
+        # Translate low level events to domain events
+        while ev := pygame.event.poll():
+            msg = None
+            if ev.type == pygame.MOUSEBUTTONDOWN:
+                pos = ev.pos
+                button = ev.button
+                if button == 1:
+                    msg = LeftMouseClickAt(pos)
+            if ev.type == pygame.MOUSEMOTION:
+                msg = MouseMovedTo(ev.pos)
+            if ev.type == pygame.KEYDOWN:
+                if ev.key == pygame.K_RETURN:
+                    msg = ColumnWasClicked(i % 2)  # TODO: how to translate to this "Domain Event" from low-level?
+                    i += 1
+                elif ev.key == pygame.K_q:
+                    return
+            elif ev.type == pygame.QUIT:
+                return
+
+            if msg:
+                old_model_repr = print_model(model)
+                model = update(model, msg)
+
+        pygame.time.wait(5)
 
         # Display current model, if any change found
         if old_model_repr != print_model(model):
             view(model, api)
-
-        pygame.display.update()
-
-
-def run_messages(model, msgs):
-    for msg in msgs:
-        model = update(model, msg)
-    return model
+            pygame.display.update()
 
 
 def main():
