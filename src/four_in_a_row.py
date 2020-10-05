@@ -73,9 +73,10 @@ def update(model, msg):
     if isinstance(model, GameState):
         if isinstance(msg, MouseMovedTo):
             model.mouse_pos = msg.pos
+        if isinstance(msg, LeftMouseClickAt):
+            return update(model, ColumnWasClicked(convert_to_column(msg.pos[0])))
         if isinstance(msg, ColumnWasClicked):
-            column = msg.column
-            model.board = place_brick(model.board, model.whos_turn_is_it, column)
+            model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
             model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
             for color in [RED, YELLOW]:
                 won = check_winning_state(model.board, color)
@@ -174,6 +175,7 @@ def convert_to_column(x):
         return None
     return (x - BOARD_LEFT) // DISC_DIAMETER
 
+
 def view(model, api):
     if isinstance(model, StartScreenState):
         view_startscreenstate(api)
@@ -261,7 +263,6 @@ def print_model(model):
 
 def mainloop(drawing_api):
     model = StartScreenState()
-    i = 0
     view(model, drawing_api)
     pygame.display.update()
     while True:
@@ -278,10 +279,7 @@ def mainloop(drawing_api):
             if ev.type == pygame.MOUSEMOTION:
                 msg = MouseMovedTo(ev.pos)
             if ev.type == pygame.KEYDOWN:
-                if ev.key == pygame.K_RETURN:
-                    msg = ColumnWasClicked(i % 2)  # TODO: how to translate to this "Domain Event" from low-level?
-                    i += 1
-                elif ev.key == pygame.K_q:
+                if ev.key == pygame.K_q:
                     return
             elif ev.type == pygame.QUIT:
                 return
