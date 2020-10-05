@@ -287,7 +287,6 @@ def mainloop(drawing_api):
                 return
 
             if msg:
-                old_model_repr = print_model(model)
                 model = update(model, msg)
 
         pygame.time.wait(5)
