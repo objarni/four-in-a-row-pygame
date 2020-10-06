@@ -85,6 +85,9 @@ def update(model, msg):
     if isinstance(model, StartScreenState):
         if isinstance(msg, LeftMouseClickAt):
             return GameState()
+    if isinstance(model, GameOverState):
+        if isinstance(msg, LeftMouseClickAt):
+            return StartScreenState()
 
     return model
 

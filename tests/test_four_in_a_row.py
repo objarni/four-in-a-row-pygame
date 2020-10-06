@@ -121,6 +121,12 @@ def test_startscreen():
     verify(print_state_and_log(model))
 
 
+def test_clicking_in_game_over_state():
+    model = GameOverState(winner=src.four_in_a_row.RED)
+    model = simulate(model, [LeftMouseClickAt((1, 1))])
+    verify(print_state_and_log(model))
+
+
 def test_startscreen_to_game_transition():
     model = StartScreenState()
     model = simulate(model, [LeftMouseClickAt((1, 1))])
