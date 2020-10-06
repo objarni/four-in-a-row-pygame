@@ -1,5 +1,5 @@
 STATE:
 StartScreenState
-
+model.time=0
 
 LOG:

@@ -6,6 +6,7 @@ def run():
         approved = Path(str(received).replace(".received.", ".approved."))
         print(f"r:{received}\n\ta:{approved}")
         approved.write_text(received.read_text(encoding='utf8'), encoding='utf8')
+        received.unlink()
 
 
 if __name__ == '__main__':

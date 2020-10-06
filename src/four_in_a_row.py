@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 import pygame
 
 # CONSTANTS, Game Logic #
@@ -47,7 +47,8 @@ class GameOverState(object):
 
 
 class StartScreenState(object):
-    pass
+    def __init__(self):
+        self.time = 0
 
 
 # MESSAGES #
@@ -67,9 +68,19 @@ class MouseMovedTo(object):
         self.pos = pos
 
 
+"""A tick represents the passing of time. dt is the number of milliseconds that has passed"""
+Tick = namedtuple('Tick', 'dt')
+
+
 # FUNCTIONS #
 
 def update(model, msg):
+    if isinstance(model, StartScreenState):
+        if isinstance(msg, LeftMouseClickAt):
+            return GameState()
+        if isinstance(msg, Tick):
+            model.time += msg.dt
+            return model
     if isinstance(model, GameState):
         if isinstance(msg, MouseMovedTo):
             model.mouse_pos = msg.pos
@@ -82,9 +93,6 @@ def update(model, msg):
                 won = check_winning_state(model.board, color)
                 if won:
                     return GameOverState(winner=color)
-    if isinstance(model, StartScreenState):
-        if isinstance(msg, LeftMouseClickAt):
-            return GameState()
     if isinstance(model, GameOverState):
         if isinstance(msg, LeftMouseClickAt):
             return StartScreenState()
@@ -181,19 +189,21 @@ def convert_to_column(x):
 
 def view(model, api):
     if isinstance(model, StartScreenState):
-        view_startscreenstate(api)
+        view_startscreenstate(api, model)
     if isinstance(model, GameState):
         view_gamestate(api, model)
     if isinstance(model, GameOverState):
         view_gameoverstate(api, model)
 
 
-def view_startscreenstate(api):
-    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.GREEN)
+def view_startscreenstate(api, model):
+    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
     api.draw_text((CENTER_X - 2, CENTER_Y - BIG_TEXT - 2), "FOUR-IN-A-ROW", BIG_TEXT, Color.WHITE)
     api.draw_text((CENTER_X, CENTER_Y - BIG_TEXT), "FOUR-IN-A-ROW", BIG_TEXT, Color.BLACK)
     api.draw_text((CENTER_X, CENTER_Y + BIG_TEXT), "Click left mouse button to play!", BIG_TEXT,
                   Color.BLACK)
+    for i in range(200):
+        api.draw_disc((int(model.time / 2 + i ** 2 * 37) % WIDTH, int(model.time + i * 237) % HEIGHT), 1, Color.BLUE)
     for i in range(4):
         bigger_disc = int(DISC_DIAMETER * 0.75)
         api.draw_disc((40 + i * (DISC_DIAMETER + 5), 100), bigger_disc, Color.YELLOW)
@@ -254,7 +264,7 @@ def log(msg):
 def print_model(model):
     state_string = model.__class__.__name__ + '\n'
     if isinstance(model, StartScreenState):
-        pass
+        state_string += f'{model.time=}'
     if isinstance(model, GameOverState):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
@@ -268,8 +278,13 @@ def mainloop(drawing_api):
     model = StartScreenState()
     view(model, drawing_api)
     pygame.display.update()
+    clock = pygame.time.Clock()
+    FPS = 60
     while True:
         old_model_repr = print_model(model)
+
+        # A tick happens every time around the loop!
+        model = update(model, Tick(1000.0 / FPS))
 
         # Translate low level events to domain events
         while ev := pygame.event.poll():
@@ -290,12 +305,14 @@ def mainloop(drawing_api):
             if msg:
                 model = update(model, msg)
 
-        pygame.time.wait(5)
+        # pygame.time.wait(5)
 
         # Display current model, if any change found
         if old_model_repr != print_model(model):
             view(model, api)
-            pygame.display.update()
+
+        pygame.display.update()
+        clock.tick(FPS)
 
 
 def main():
