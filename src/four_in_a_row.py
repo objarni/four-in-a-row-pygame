@@ -33,7 +33,7 @@ class Color:
 
 class GameState(object):
     def __init__(self):
-        self.board = defaultdict(lambda: EMPTY)
+        self.board = empty_board()
         self.whos_turn_is_it = RED
         self.mouse_pos = CENTER
 
@@ -41,9 +41,11 @@ class GameState(object):
         return print_color(self.whos_turn_is_it)
 
 
-class GameOverState(object):
-    def __init__(self, winner):
-        self.winner = winner
+def empty_board():
+    return defaultdict(lambda: EMPTY)
+
+
+GameOverState = namedtuple('GameOverState', 'winner board')
 
 
 class StartScreenState(object):
@@ -92,7 +94,7 @@ def update(model, msg):
             for color in [RED, YELLOW]:
                 won = check_winning_state(model.board, color)
                 if won:
-                    return GameOverState(winner=color)
+                    return GameOverState(winner=color, board=model.board)
     if isinstance(model, GameOverState):
         if isinstance(msg, LeftMouseClickAt):
             return StartScreenState()
@@ -188,6 +190,7 @@ def convert_to_column(x):
 
 
 def view(model, api):
+    clear_screen(api)
     if isinstance(model, StartScreenState):
         view_startscreenstate(api, model)
     if isinstance(model, GameState):
@@ -197,9 +200,7 @@ def view(model, api):
 
 
 def view_startscreenstate(api, model):
-    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
-    api.draw_text((CENTER_X - 2, CENTER_Y - BIG_TEXT - 2), "FOUR-IN-A-ROW", BIG_TEXT, Color.WHITE)
-    api.draw_text((CENTER_X, CENTER_Y - BIG_TEXT), "FOUR-IN-A-ROW", BIG_TEXT, Color.BLACK)
+    edged_text(api, "FOUR-IN-A-ROW", CENTER, BIG_TEXT, Color.GREEN)
     api.draw_text((CENTER_X, CENTER_Y + BIG_TEXT), "Click left mouse button to play!", BIG_TEXT,
                   Color.BLACK)
     for i in range(200):
@@ -211,42 +212,69 @@ def view_startscreenstate(api, model):
 
 
 def view_gamestate(api, model):
-    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
     column = convert_to_column(model.mouse_pos[0])
     if column is not None:
         pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
         api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     else:
         api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
-    api.draw_rectangle(CENTER, (DISC_DIAMETER * COLUMNS + 20, DISC_DIAMETER * ROWS + 20), Color.BLUE)
-    for (x, y) in positions_in_print_order():
-        value = model.board[(x, y)]
-        color = Color.BLACK
-        if value != EMPTY:
-            color = rgb_from_color(value)
-        x0 = int(WIDTH / 2 - COLUMNS * DISC_DIAMETER / 2 + x * DISC_DIAMETER + DISC_RADIUS)
-        y0 = int(HEIGHT / 2 - ROWS * DISC_DIAMETER / 2 + y * DISC_DIAMETER + DISC_RADIUS)
-        pos = (x0, y0)
-        api.draw_disc(pos, DISC_RADIUS, color)
+    board = model.board
+    draw_board(api, board)
     api.draw_text((WIDTH // 2, 20), f"{model.whos_turn().title()} to place disc", MID_TEXT, Color.WHITE)
     api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
     api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
 
 
 def view_gameoverstate(api, model):
-    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLUE)
+    draw_board(api, model.board, scale=1.0)
+
+    edged_text(api,
+               "GAME OVER",
+               (CENTER_X, CENTER_Y - BIG_TEXT), BIG_TEXT,
+               Color.WHITE)
+
+    edged_text(api,
+               f"{print_color(model.winner)} won!".upper(),
+               ((CENTER_X), (CENTER_Y + BIG_TEXT)), BIG_TEXT,
+               rgb_from_color(model.winner))
+
+
+def edged_text(api, txt, pos, size, color):
+    (x, y) = pos
     api.draw_text(
-        (CENTER_X, CENTER_Y - BIG_TEXT),
-        f"GAME OVER",
-        BIG_TEXT,
+        (x - 2, y - 2),
+        txt,
+        size,
         Color.WHITE
     )
     api.draw_text(
-        (CENTER_X, CENTER_Y + BIG_TEXT),
-        f"{print_color(model.winner)} won!".upper(),
-        BIG_TEXT,
-        rgb_from_color(model.winner)
+        (x + 2, y + 2),
+        txt,
+        size,
+        Color.BLACK
     )
+    api.draw_text(
+        (x, y),
+        txt,
+        size,
+        color
+    )
+
+
+def clear_screen(api):
+    api.draw_rectangle(CENTER, (WIDTH, HEIGHT), Color.BLACK)
+
+
+def draw_board(api, board, scale=1.0):
+    api.draw_rectangle(CENTER, (DISC_DIAMETER * COLUMNS + 20, DISC_DIAMETER * ROWS + 20), Color.BLUE)
+    for (x, y) in positions_in_print_order():
+        value = board[(x, y)]
+        color = Color.BLACK
+        if value != EMPTY:
+            color = rgb_from_color(value)
+        x0 = int((WIDTH / 2 - COLUMNS * DISC_DIAMETER / 2 + x * DISC_DIAMETER + DISC_RADIUS))
+        y0 = int((HEIGHT / 2 - ROWS * DISC_DIAMETER / 2 + y * DISC_DIAMETER + DISC_RADIUS))
+        api.draw_disc((x0, y0), int(scale * DISC_RADIUS), color)
 
 
 def rgb_from_color(color):

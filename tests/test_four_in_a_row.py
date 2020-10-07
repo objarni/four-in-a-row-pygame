@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from approvaltests import verify
 
 from src.four_in_a_row import (GameOverState, GameState, StartScreenState,
@@ -122,7 +124,7 @@ def test_startscreen():
 
 
 def test_clicking_in_game_over_state():
-    model = GameOverState(winner=src.four_in_a_row.RED)
+    model = GameOverState(winner=src.four_in_a_row.RED, board=src.four_in_a_row.empty_board())
     model = simulate(model, [LeftMouseClickAt((1, 1))])
     verify(print_state_and_log(model))
 
