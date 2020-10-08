@@ -19,6 +19,9 @@ class FakeDrawingApi:
     def draw_text(self, center, text, size, color):
         src.four_in_a_row.log(f"Drawing text '{text}' at {center} color {color} size {size}")
 
+    def draw_image(self, center, name, dimension):
+        src.four_in_a_row.log(f"Drawing image '{name}' at {center} dimension {dimension}")
+
 
 def print_state_and_log(model):
     state_string = print_model(model)

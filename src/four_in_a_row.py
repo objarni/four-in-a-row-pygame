@@ -161,6 +161,7 @@ class DrawingAPI:
     def __init__(self, screen):
         self.screen = screen
         self.font_name = pygame.font.match_font('arial')
+        self.image_dict = {}
 
     def draw_rectangle(self, center, size, color):
         log(f"Drawing rectangle center {center} size {size} color {color}")
@@ -179,6 +180,17 @@ class DrawingAPI:
         text_rect = text_surface.get_rect()
         text_rect.center = center
         self.screen.blit(text_surface, text_rect)
+
+    def draw_image(self, center, name, dimension):
+        if (name, dimension) not in self.image_dict:
+            self.image_dict[(name, dimension)] = self.load_and_scale(name, dimension)
+        image = self.image_dict[(name, dimension)]
+        pos = center[0] - WIDTH//2, center[1] - HEIGHT//2
+        self.screen.blit(image, pos)
+
+    def load_and_scale(self, name, dimension):
+        image = pygame.image.load(f'res/{name}.png')
+        return pygame.transform.scale(image, dimension)
 
 
 def convert_to_column(x):
@@ -200,9 +212,12 @@ def view(model, api):
 
 
 def view_startscreenstate(api, model):
+    api.draw_image(CENTER, 'bg', (WIDTH, HEIGHT))
     edged_text(api, "FOUR-IN-A-ROW", CENTER, BIG_TEXT, Color.GREEN)
-    api.draw_text((CENTER_X, CENTER_Y + BIG_TEXT), "Click left mouse button to play!", BIG_TEXT,
-                  Color.BLACK)
+    edged_text(api, "Click left mouse button to play!",
+               (CENTER_X, CENTER_Y + BIG_TEXT),
+               BIG_TEXT,
+               Color.YELLOW)
     for i in range(200):
         api.draw_disc((int(model.time / 2 + i ** 2 * 37) % WIDTH, int(model.time + i * 237) % HEIGHT), 1, Color.BLUE)
     for i in range(4):
