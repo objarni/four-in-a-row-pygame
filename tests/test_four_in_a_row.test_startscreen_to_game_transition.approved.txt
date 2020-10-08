@@ -1,7 +1,9 @@
 STATE:
 GameState
 It is reds turn.
+model.time=None
 The mouse is at (550, 400).
+model.mouse_down_time=None
 0 1 2 3 4 5 6
 -------------
 O O O O O O O
@@ -231,7 +233,6 @@ Drawing a disc center (325, 100) size 67 color (255, 255, 0)
 Drawing a disc center (775, 700) size 67 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (550, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -278,3 +279,4 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (550, 85) size 45 color (255, 0, 0)

@@ -5,6 +5,7 @@ import pygame
 COLUMNS = 7
 ROWS = 6
 RED, YELLOW, EMPTY = range(3)
+DROP_DELAY_MS = 250
 
 # CONSTANTS, Graphics #
 WIDTH, HEIGHT = 1100, 800
@@ -37,6 +38,7 @@ class GameState(object):
         self.whos_turn_is_it = RED
         self.mouse_pos = CENTER
         self.mouse_down_time = None
+        self.time = None
 
 
 def empty_board():
@@ -70,10 +72,20 @@ def update(model, msg):
             model.time = msg.time
             return model
     if isinstance(model, GameState):
+        if isinstance(msg, Tick):
+            model.time = msg.time
+            if model.mouse_down_time:
+                if model.time > model.mouse_down_time + DROP_DELAY_MS:
+                    model.mouse_down_time = None
+                    model = update(model, ColumnWasClicked(convert_to_column(model.mouse_pos[0])))
         if isinstance(msg, MouseMovedTo):
             model.mouse_pos = msg.pos
         if isinstance(msg, LeftMouseDownAt):
-            return update(model, ColumnWasClicked(convert_to_column(msg.pos[0])))
+            if convert_to_column(msg.pos[0]) is not None:
+                model.mouse_down = msg.pos
+                model.mouse_down_time = model.time
+        if isinstance(msg, LeftMouseUpAt):
+            model.mouse_down_time = None
         if isinstance(msg, ColumnWasClicked):
             model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
             model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
@@ -176,12 +188,12 @@ def convert_to_column(x):
 
 
 def frac(begin, end, current):
-    return float(current) / (float(end) - float(begin))
+    return (float(current) - float(begin)) / (float(end) - float(begin))
 
 
-assert frac(0, 10, 5) == 0.5
-assert frac(0, 10, 0) == 0
-assert frac(0, 10, 7.5) == 0.75
+assert frac(10, 20, 15) == 0.5
+assert frac(10, 20, 10) == 0
+assert frac(10, 20, 17.5) == 0.75
 
 
 def view_gamestate(api, model):
@@ -194,13 +206,13 @@ def view_gamestate(api, model):
 
     # Player making move?
     if model.mouse_down_time:
-        column = convert_to_column(model.mouse_down)
+        column = convert_to_column(model.mouse_down[0])
         pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
         api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
         # draw holding indicator
-        fraction = frac(begin=model.mouse_down_time, end=model.mouse_down_time + 1000,
+        fraction = frac(begin=model.mouse_down_time, end=model.mouse_down_time + DROP_DELAY_MS,
                         current=model.time)  # from, to, current
-        api.draw_disc(pos, DISC_RADIUS * fraction, Color.GREEN)
+        api.draw_disc(pos, int(DISC_RADIUS * fraction), Color.GREEN)
     else:
         column = convert_to_column(model.mouse_pos[0])
         if column is not None:
@@ -320,7 +332,9 @@ def print_model(model):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
         state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
+        state_string += f'{model.time=}\n'
         state_string += f'The mouse is at {model.mouse_pos}.\n'
+        state_string += f'{model.mouse_down_time=}\n'
         state_string += board_to_string(model.board)
     return state_string
 

@@ -1,7 +1,9 @@
 STATE:
 GameState
 It is reds turn.
+model.time=None
 The mouse is at (490, 490).
+model.mouse_down_time=None
 0 1 2 3 4 5 6
 -------------
 O O O O O O O
@@ -14,7 +16,55 @@ O O O O O O O
 
 LOG:
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
+Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
+Drawing a disc center (280, 175) size 45 color (0, 0, 0)
+Drawing a disc center (370, 175) size 45 color (0, 0, 0)
+Drawing a disc center (460, 175) size 45 color (0, 0, 0)
+Drawing a disc center (550, 175) size 45 color (0, 0, 0)
+Drawing a disc center (640, 175) size 45 color (0, 0, 0)
+Drawing a disc center (730, 175) size 45 color (0, 0, 0)
+Drawing a disc center (820, 175) size 45 color (0, 0, 0)
+Drawing a disc center (280, 265) size 45 color (0, 0, 0)
+Drawing a disc center (370, 265) size 45 color (0, 0, 0)
+Drawing a disc center (460, 265) size 45 color (0, 0, 0)
+Drawing a disc center (550, 265) size 45 color (0, 0, 0)
+Drawing a disc center (640, 265) size 45 color (0, 0, 0)
+Drawing a disc center (730, 265) size 45 color (0, 0, 0)
+Drawing a disc center (820, 265) size 45 color (0, 0, 0)
+Drawing a disc center (280, 355) size 45 color (0, 0, 0)
+Drawing a disc center (370, 355) size 45 color (0, 0, 0)
+Drawing a disc center (460, 355) size 45 color (0, 0, 0)
+Drawing a disc center (550, 355) size 45 color (0, 0, 0)
+Drawing a disc center (640, 355) size 45 color (0, 0, 0)
+Drawing a disc center (730, 355) size 45 color (0, 0, 0)
+Drawing a disc center (820, 355) size 45 color (0, 0, 0)
+Drawing a disc center (280, 445) size 45 color (0, 0, 0)
+Drawing a disc center (370, 445) size 45 color (0, 0, 0)
+Drawing a disc center (460, 445) size 45 color (0, 0, 0)
+Drawing a disc center (550, 445) size 45 color (0, 0, 0)
+Drawing a disc center (640, 445) size 45 color (0, 0, 0)
+Drawing a disc center (730, 445) size 45 color (0, 0, 0)
+Drawing a disc center (820, 445) size 45 color (0, 0, 0)
+Drawing a disc center (280, 535) size 45 color (0, 0, 0)
+Drawing a disc center (370, 535) size 45 color (0, 0, 0)
+Drawing a disc center (460, 535) size 45 color (0, 0, 0)
+Drawing a disc center (550, 535) size 45 color (0, 0, 0)
+Drawing a disc center (640, 535) size 45 color (0, 0, 0)
+Drawing a disc center (730, 535) size 45 color (0, 0, 0)
+Drawing a disc center (820, 535) size 45 color (0, 0, 0)
+Drawing a disc center (280, 625) size 45 color (0, 0, 0)
+Drawing a disc center (370, 625) size 45 color (0, 0, 0)
+Drawing a disc center (460, 625) size 45 color (0, 0, 0)
+Drawing a disc center (550, 625) size 45 color (0, 0, 0)
+Drawing a disc center (640, 625) size 45 color (0, 0, 0)
+Drawing a disc center (730, 625) size 45 color (0, 0, 0)
+Drawing a disc center (820, 625) size 45 color (0, 0, 0)
+Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
+Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
+Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -61,9 +111,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (0, 0) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -110,9 +160,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (10, 10) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -159,9 +209,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (20, 20) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -208,9 +258,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (30, 30) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -257,9 +307,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (40, 40) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -306,9 +356,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (50, 50) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -355,9 +405,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (60, 60) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -404,9 +454,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (70, 70) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -453,9 +503,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (80, 80) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -502,9 +552,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (90, 90) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -551,9 +601,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (100, 100) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -600,9 +650,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (110, 110) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -649,9 +699,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (120, 120) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -698,9 +748,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (130, 130) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -747,9 +797,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (140, 140) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -796,9 +846,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (150, 150) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -845,9 +895,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (160, 160) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -894,9 +944,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (170, 170) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -943,9 +993,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (180, 180) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -992,9 +1042,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (190, 190) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1041,9 +1091,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (200, 200) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1090,9 +1140,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (210, 210) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1139,9 +1189,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (220, 220) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1188,9 +1238,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (230, 230) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1237,9 +1287,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1286,9 +1336,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1335,9 +1385,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1384,9 +1434,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1433,9 +1483,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1482,9 +1532,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1531,9 +1581,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1580,9 +1630,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1629,9 +1679,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1678,9 +1728,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1727,9 +1777,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1776,9 +1826,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1825,9 +1875,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1874,9 +1924,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1923,9 +1973,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -1972,9 +2022,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2021,9 +2071,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2070,9 +2120,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[STATE CHANGE, VIEWING]
+Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2119,58 +2169,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
-[STATE CHANGE, VIEWING]
-Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
-Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
-Drawing a disc center (280, 175) size 45 color (0, 0, 0)
-Drawing a disc center (370, 175) size 45 color (0, 0, 0)
-Drawing a disc center (460, 175) size 45 color (0, 0, 0)
-Drawing a disc center (550, 175) size 45 color (0, 0, 0)
-Drawing a disc center (640, 175) size 45 color (0, 0, 0)
-Drawing a disc center (730, 175) size 45 color (0, 0, 0)
-Drawing a disc center (820, 175) size 45 color (0, 0, 0)
-Drawing a disc center (280, 265) size 45 color (0, 0, 0)
-Drawing a disc center (370, 265) size 45 color (0, 0, 0)
-Drawing a disc center (460, 265) size 45 color (0, 0, 0)
-Drawing a disc center (550, 265) size 45 color (0, 0, 0)
-Drawing a disc center (640, 265) size 45 color (0, 0, 0)
-Drawing a disc center (730, 265) size 45 color (0, 0, 0)
-Drawing a disc center (820, 265) size 45 color (0, 0, 0)
-Drawing a disc center (280, 355) size 45 color (0, 0, 0)
-Drawing a disc center (370, 355) size 45 color (0, 0, 0)
-Drawing a disc center (460, 355) size 45 color (0, 0, 0)
-Drawing a disc center (550, 355) size 45 color (0, 0, 0)
-Drawing a disc center (640, 355) size 45 color (0, 0, 0)
-Drawing a disc center (730, 355) size 45 color (0, 0, 0)
-Drawing a disc center (820, 355) size 45 color (0, 0, 0)
-Drawing a disc center (280, 445) size 45 color (0, 0, 0)
-Drawing a disc center (370, 445) size 45 color (0, 0, 0)
-Drawing a disc center (460, 445) size 45 color (0, 0, 0)
-Drawing a disc center (550, 445) size 45 color (0, 0, 0)
-Drawing a disc center (640, 445) size 45 color (0, 0, 0)
-Drawing a disc center (730, 445) size 45 color (0, 0, 0)
-Drawing a disc center (820, 445) size 45 color (0, 0, 0)
-Drawing a disc center (280, 535) size 45 color (0, 0, 0)
-Drawing a disc center (370, 535) size 45 color (0, 0, 0)
-Drawing a disc center (460, 535) size 45 color (0, 0, 0)
-Drawing a disc center (550, 535) size 45 color (0, 0, 0)
-Drawing a disc center (640, 535) size 45 color (0, 0, 0)
-Drawing a disc center (730, 535) size 45 color (0, 0, 0)
-Drawing a disc center (820, 535) size 45 color (0, 0, 0)
-Drawing a disc center (280, 625) size 45 color (0, 0, 0)
-Drawing a disc center (370, 625) size 45 color (0, 0, 0)
-Drawing a disc center (460, 625) size 45 color (0, 0, 0)
-Drawing a disc center (550, 625) size 45 color (0, 0, 0)
-Drawing a disc center (640, 625) size 45 color (0, 0, 0)
-Drawing a disc center (730, 625) size 45 color (0, 0, 0)
-Drawing a disc center (820, 625) size 45 color (0, 0, 0)
-Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
-Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
-Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2217,9 +2218,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2266,9 +2267,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2315,9 +2316,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2364,9 +2365,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2413,9 +2414,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2462,9 +2463,9 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
-Drawing a disc center (460, 85) size 45 color (255, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
 Drawing a disc center (280, 175) size 45 color (0, 0, 0)
 Drawing a disc center (370, 175) size 45 color (0, 0, 0)
@@ -2511,3 +2512,4 @@ Drawing a disc center (820, 625) size 45 color (0, 0, 0)
 Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
+Drawing a disc center (460, 85) size 45 color (255, 0, 0)

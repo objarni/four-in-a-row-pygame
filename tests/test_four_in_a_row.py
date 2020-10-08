@@ -67,7 +67,7 @@ def simulate(model, messages):
 
 
 def test_first_placed_brick_is_red():
-    model = simulate(GameState(), [LeftMouseDownAt((300, 500))])
+    model = simulate(GameState(), [ColumnWasClicked(0)])
     verify(print_state_and_log(model))
 
 
