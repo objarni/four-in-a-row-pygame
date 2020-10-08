@@ -55,20 +55,11 @@ class StartScreenState(object):
 
 # MESSAGES #
 
-class LeftMouseClickAt(object):
-    def __init__(self, pos):
-        self.pos = pos
+LeftMouseClickAt = namedtuple('LeftMouseClickAt', 'pos')
 
+ColumnWasClicked = namedtuple('ColumnWasClicked', 'column')
 
-class ColumnWasClicked(object):
-    def __init__(self, column):
-        self.column = column
-
-
-class MouseMovedTo(object):
-    def __init__(self, pos):
-        self.pos = pos
-
+MouseMovedTo = namedtuple('MouseMovedTo', 'pos')
 
 """A tick represents the passing of time. dt is the number of milliseconds that has passed"""
 Tick = namedtuple('Tick', 'dt')
@@ -185,7 +176,7 @@ class DrawingAPI:
         if (name, dimension) not in self.image_dict:
             self.image_dict[(name, dimension)] = self.load_and_scale(name, dimension)
         image = self.image_dict[(name, dimension)]
-        pos = center[0] - WIDTH//2, center[1] - HEIGHT//2
+        pos = center[0] - WIDTH // 2, center[1] - HEIGHT // 2
         self.screen.blit(image, pos)
 
     def load_and_scale(self, name, dimension):
