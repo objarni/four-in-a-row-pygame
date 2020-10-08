@@ -36,6 +36,8 @@ class GameState(object):
         self.board = empty_board()
         self.whos_turn_is_it = RED
         self.mouse_pos = CENTER
+        self.mouse_down_time = None
+
 
 def empty_board():
     return defaultdict(lambda: EMPTY)
@@ -51,29 +53,26 @@ class StartScreenState(object):
 
 # MESSAGES #
 
-LeftMouseClickAt = namedtuple('LeftMouseClickAt', 'pos')
-
+LeftMouseDownAt = namedtuple('LeftMouseDownAt', 'pos')
+LeftMouseUpAt = namedtuple('LeftMouseUpAt', 'pos')
 ColumnWasClicked = namedtuple('ColumnWasClicked', 'column')
-
 MouseMovedTo = namedtuple('MouseMovedTo', 'pos')
-
-"""A tick represents the passing of time. dt is the number of milliseconds that has passed"""
-Tick = namedtuple('Tick', 'dt')
+Tick = namedtuple('Tick', 'time')
 
 
 # FUNCTIONS #
 
 def update(model, msg):
     if isinstance(model, StartScreenState):
-        if isinstance(msg, LeftMouseClickAt):
+        if isinstance(msg, LeftMouseDownAt):
             return GameState()
         if isinstance(msg, Tick):
-            model.time += msg.dt
+            model.time = msg.time
             return model
     if isinstance(model, GameState):
         if isinstance(msg, MouseMovedTo):
             model.mouse_pos = msg.pos
-        if isinstance(msg, LeftMouseClickAt):
+        if isinstance(msg, LeftMouseDownAt):
             return update(model, ColumnWasClicked(convert_to_column(msg.pos[0])))
         if isinstance(msg, ColumnWasClicked):
             model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
@@ -83,7 +82,7 @@ def update(model, msg):
                 if won:
                     return GameOverState(winner=color, board=model.board)
     if isinstance(model, GameOverState):
-        if isinstance(msg, LeftMouseClickAt):
+        if isinstance(msg, LeftMouseDownAt):
             return StartScreenState()
 
     return model
@@ -143,6 +142,88 @@ def positions_in_print_order():
             yield (x, y)
 
 
+def view(model, api):
+    clear_screen(api)
+    if isinstance(model, StartScreenState):
+        view_startscreenstate(api, model)
+    if isinstance(model, GameState):
+        view_gamestate(api, model)
+    if isinstance(model, GameOverState):
+        view_gameoverstate(api, model)
+
+
+def view_startscreenstate(api, model):
+    api.draw_image(CENTER, 'bg', (WIDTH, HEIGHT))
+    edged_text(api, "FOUR-IN-A-ROW", CENTER, BIG_TEXT, Color.GREEN)
+    edged_text(api, "Click left mouse button to play!",
+               (CENTER_X, CENTER_Y + BIG_TEXT),
+               BIG_TEXT,
+               Color.YELLOW)
+    for i in range(200):
+        api.draw_disc((int(model.time / 2 + i ** 2 * 37) % WIDTH, int(model.time + i * 237) % HEIGHT), 1, Color.BLUE)
+    for i in range(4):
+        bigger_disc = int(DISC_DIAMETER * 0.75)
+        api.draw_disc((40 + i * (DISC_DIAMETER + 5), 100), bigger_disc, Color.YELLOW)
+        api.draw_disc((WIDTH - 40 - i * (DISC_DIAMETER + 5), HEIGHT - 100), bigger_disc, Color.RED)
+
+
+def convert_to_column(x):
+    if x < BOARD_LEFT:
+        return None
+    if x > BOARD_RIGHT:
+        return None
+    return (x - BOARD_LEFT) // DISC_DIAMETER
+
+
+def frac(begin, end, current):
+    return float(current) / (float(end) - float(begin))
+
+
+assert frac(0, 10, 5) == 0.5
+assert frac(0, 10, 0) == 0
+assert frac(0, 10, 7.5) == 0.75
+
+
+def view_gamestate(api, model):
+    board = model.board
+    draw_board(api, board)
+    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", MID_TEXT,
+                  Color.WHITE)
+    api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
+    api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
+
+    # Player making move?
+    if model.mouse_down_time:
+        column = convert_to_column(model.mouse_down)
+        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
+        api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
+        # draw holding indicator
+        fraction = frac(begin=model.mouse_down_time, end=model.mouse_down_time + 1000,
+                        current=model.time)  # from, to, current
+        api.draw_disc(pos, DISC_RADIUS * fraction, Color.GREEN)
+    else:
+        column = convert_to_column(model.mouse_pos[0])
+        if column is not None:
+            pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
+            api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
+        else:
+            api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
+
+
+def view_gameoverstate(api, model):
+    draw_board(api, model.board, scale=1.0)
+
+    edged_text(api,
+               "GAME OVER",
+               (CENTER_X, CENTER_Y - BIG_TEXT), BIG_TEXT,
+               Color.WHITE)
+
+    edged_text(api,
+               f"{print_color(model.winner)} won!".upper(),
+               ((CENTER_X), (CENTER_Y + BIG_TEXT)), BIG_TEXT,
+               rgb_from_color(model.winner))
+
+
 # PyGame drawing wrapper
 class DrawingAPI:
     def __init__(self, screen):
@@ -176,70 +257,9 @@ class DrawingAPI:
         self.screen.blit(image, pos)
 
     def load_and_scale(self, name, dimension):
-        image = pygame.image.load(f'res/{name}.png')
+        p = f'res/{name}.png'
+        image = pygame.image.load(p)
         return pygame.transform.scale(image, dimension)
-
-
-def convert_to_column(x):
-    if x < BOARD_LEFT:
-        return None
-    if x > BOARD_RIGHT:
-        return None
-    return (x - BOARD_LEFT) // DISC_DIAMETER
-
-
-def view(model, api):
-    clear_screen(api)
-    if isinstance(model, StartScreenState):
-        view_startscreenstate(api, model)
-    if isinstance(model, GameState):
-        view_gamestate(api, model)
-    if isinstance(model, GameOverState):
-        view_gameoverstate(api, model)
-
-
-def view_startscreenstate(api, model):
-    api.draw_image(CENTER, 'bg', (WIDTH, HEIGHT))
-    edged_text(api, "FOUR-IN-A-ROW", CENTER, BIG_TEXT, Color.GREEN)
-    edged_text(api, "Click left mouse button to play!",
-               (CENTER_X, CENTER_Y + BIG_TEXT),
-               BIG_TEXT,
-               Color.YELLOW)
-    for i in range(200):
-        api.draw_disc((int(model.time / 2 + i ** 2 * 37) % WIDTH, int(model.time + i * 237) % HEIGHT), 1, Color.BLUE)
-    for i in range(4):
-        bigger_disc = int(DISC_DIAMETER * 0.75)
-        api.draw_disc((40 + i * (DISC_DIAMETER + 5), 100), bigger_disc, Color.YELLOW)
-        api.draw_disc((WIDTH - 40 - i * (DISC_DIAMETER + 5), HEIGHT - 100), bigger_disc, Color.RED)
-
-
-def view_gamestate(api, model):
-    column = convert_to_column(model.mouse_pos[0])
-    if column is not None:
-        pos = (BOARD_LEFT + DISC_DIAMETER * column + DISC_RADIUS, CENTER_Y - BOARD_HEIGHT // 2 - DISC_RADIUS)
-        api.draw_disc(pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
-    else:
-        api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
-    board = model.board
-    draw_board(api, board)
-    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", MID_TEXT,
-                  Color.WHITE)
-    api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
-    api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
-
-
-def view_gameoverstate(api, model):
-    draw_board(api, model.board, scale=1.0)
-
-    edged_text(api,
-               "GAME OVER",
-               (CENTER_X, CENTER_Y - BIG_TEXT), BIG_TEXT,
-               Color.WHITE)
-
-    edged_text(api,
-               f"{print_color(model.winner)} won!".upper(),
-               ((CENTER_X), (CENTER_Y + BIG_TEXT)), BIG_TEXT,
-               rgb_from_color(model.winner))
 
 
 def edged_text(api, txt, pos, size, color):
@@ -315,16 +335,17 @@ def mainloop(drawing_api):
         old_model_repr = print_model(model)
 
         # A tick happens every time around the loop!
-        model = update(model, Tick(1000.0 / FPS))
+        model = update(model, Tick(pygame.time.get_ticks()))
 
         # Translate low level events to domain events
         while ev := pygame.event.poll():
             msg = None
             if ev.type == pygame.MOUSEBUTTONDOWN:
-                pos = ev.pos
-                button = ev.button
-                if button == 1:
-                    msg = LeftMouseClickAt(pos)
+                if ev.button == 1:
+                    msg = LeftMouseDownAt(ev.pos)
+            if ev.type == pygame.MOUSEBUTTONUP:
+                if ev.button == 1:
+                    msg = LeftMouseUpAt(ev.pos)
             if ev.type == pygame.MOUSEMOTION:
                 msg = MouseMovedTo(ev.pos)
             if ev.type == pygame.KEYDOWN:

@@ -4,7 +4,7 @@ from approvaltests import verify
 
 from src.four_in_a_row import (GameOverState, GameState, StartScreenState,
                                update, view, ColumnWasClicked,
-                               LeftMouseClickAt, MouseMovedTo,
+                               LeftMouseDownAt, MouseMovedTo,
                                print_model)
 import src.four_in_a_row
 
@@ -67,7 +67,7 @@ def simulate(model, messages):
 
 
 def test_first_placed_brick_is_red():
-    model = simulate(GameState(), [LeftMouseClickAt((300, 500))])
+    model = simulate(GameState(), [LeftMouseDownAt((300, 500))])
     verify(print_state_and_log(model))
 
 
@@ -128,13 +128,13 @@ def test_startscreen():
 
 def test_clicking_in_game_over_state():
     model = GameOverState(winner=src.four_in_a_row.RED, board=src.four_in_a_row.empty_board())
-    model = simulate(model, [LeftMouseClickAt((1, 1))])
+    model = simulate(model, [LeftMouseDownAt((1, 1))])
     verify(print_state_and_log(model))
 
 
 def test_startscreen_to_game_transition():
     model = StartScreenState()
-    model = simulate(model, [LeftMouseClickAt((1, 1))])
+    model = simulate(model, [LeftMouseDownAt((1, 1))])
     verify(print_state_and_log(model))
 
 
