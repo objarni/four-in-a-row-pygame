@@ -37,10 +37,6 @@ class GameState(object):
         self.whos_turn_is_it = RED
         self.mouse_pos = CENTER
 
-    def whos_turn(self):
-        return print_color(self.whos_turn_is_it)
-
-
 def empty_board():
     return defaultdict(lambda: EMPTY)
 
@@ -226,7 +222,8 @@ def view_gamestate(api, model):
         api.draw_disc(model.mouse_pos, DISC_RADIUS, rgb_from_color(model.whos_turn_is_it))
     board = model.board
     draw_board(api, board)
-    api.draw_text((WIDTH // 2, 20), f"{model.whos_turn().title()} to place disc", MID_TEXT, Color.WHITE)
+    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", MID_TEXT,
+                  Color.WHITE)
     api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
     api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
 
@@ -302,7 +299,7 @@ def print_model(model):
     if isinstance(model, GameOverState):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
-        state_string += f'It is {model.whos_turn()}s turn.\n'
+        state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
         state_string += f'The mouse is at {model.mouse_pos}.\n'
         state_string += board_to_string(model.board)
     return state_string
