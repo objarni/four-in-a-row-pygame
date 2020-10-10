@@ -52,6 +52,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=0) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 Placing brick color red in column 0
 Board state is now:
 0 1 2 3 4 5 6
@@ -112,6 +128,22 @@ Drawing text 'Yellow to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 255, 0)
+[SIMULATING MSG=ColumnWasClicked(column=1) on MODEL BELOW]
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R O O O O O O
+
+
 Placing brick color yellow in column 1
 Board state is now:
 0 1 2 3 4 5 6
@@ -172,6 +204,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=1) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+R Y O O O O O
+
+
 Placing brick color red in column 1
 Board state is now:
 0 1 2 3 4 5 6
@@ -232,6 +280,22 @@ Drawing text 'Yellow to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 255, 0)
+[SIMULATING MSG=ColumnWasClicked(column=2) on MODEL BELOW]
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O R O O O O O
+R Y O O O O O
+
+
 Placing brick color yellow in column 2
 Board state is now:
 0 1 2 3 4 5 6
@@ -292,6 +356,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=2) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O R O O O O O
+R Y Y O O O O
+
+
 Placing brick color red in column 2
 Board state is now:
 0 1 2 3 4 5 6
@@ -352,6 +432,22 @@ Drawing text 'Yellow to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 255, 0)
+[SIMULATING MSG=ColumnWasClicked(column=3) on MODEL BELOW]
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O R R O O O O
+R Y Y O O O O
+
+
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
@@ -412,6 +508,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=2) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O R R O O O O
+R Y Y Y O O O
+
+
 Placing brick color red in column 2
 Board state is now:
 0 1 2 3 4 5 6
@@ -472,6 +584,22 @@ Drawing text 'Yellow to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 255, 0)
+[SIMULATING MSG=ColumnWasClicked(column=3) on MODEL BELOW]
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O R O O O O
+O R R O O O O
+R Y Y Y O O O
+
+
 Placing brick color yellow in column 3
 Board state is now:
 0 1 2 3 4 5 6
@@ -532,6 +660,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=3) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O R O O O O
+O R R Y O O O
+R Y Y Y O O O
+
+
 Placing brick color red in column 3
 Board state is now:
 0 1 2 3 4 5 6
@@ -592,6 +736,22 @@ Drawing text 'Yellow to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 255, 0)
+[SIMULATING MSG=ColumnWasClicked(column=5) on MODEL BELOW]
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O R R O O O
+O R R Y O O O
+R Y Y Y O O O
+
+
 Placing brick color yellow in column 5
 Board state is now:
 0 1 2 3 4 5 6
@@ -652,6 +812,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=ColumnWasClicked(column=3) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O R R O O O
+O R R Y O O O
+R Y Y Y O Y O
+
+
 Placing brick color red in column 3
 Board state is now:
 0 1 2 3 4 5 6

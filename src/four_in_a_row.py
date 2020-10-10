@@ -371,8 +371,6 @@ def mainloop(drawing_api):
             if msg:
                 model = update(model, msg)
 
-        # pygame.time.wait(5)
-
         # Display current model, if any change found
         if old_model_repr != print_model(model):
             view(model, api)

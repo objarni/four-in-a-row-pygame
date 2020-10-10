@@ -63,6 +63,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (550, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(0, 0)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -112,6 +128,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (0, 0) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(10, 10)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (0, 0).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -161,6 +193,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (10, 10) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(20, 20)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (10, 10).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -210,6 +258,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (20, 20) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(30, 30)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (20, 20).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -259,6 +323,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (30, 30) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(40, 40)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (30, 30).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -308,6 +388,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (40, 40) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(50, 50)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (40, 40).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -357,6 +453,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (50, 50) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(60, 60)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (50, 50).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -406,6 +518,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (60, 60) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(70, 70)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (60, 60).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -455,6 +583,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (70, 70) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(80, 80)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (70, 70).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -504,6 +648,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (80, 80) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(90, 90)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (80, 80).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -553,6 +713,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (90, 90) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(100, 100)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (90, 90).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -602,6 +778,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (100, 100) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(110, 110)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (100, 100).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -651,6 +843,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (110, 110) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(120, 120)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (110, 110).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -700,6 +908,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (120, 120) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(130, 130)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (120, 120).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -749,6 +973,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (130, 130) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(140, 140)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (130, 130).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -798,6 +1038,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (140, 140) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(150, 150)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (140, 140).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -847,6 +1103,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (150, 150) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(160, 160)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (150, 150).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -896,6 +1168,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (160, 160) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(170, 170)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (160, 160).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -945,6 +1233,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (170, 170) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(180, 180)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (170, 170).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -994,6 +1298,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (180, 180) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(190, 190)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (180, 180).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1043,6 +1363,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (190, 190) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(200, 200)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (190, 190).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1092,6 +1428,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (200, 200) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(210, 210)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (200, 200).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1141,6 +1493,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (210, 210) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(220, 220)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (210, 210).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1190,6 +1558,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (220, 220) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(230, 230)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (220, 220).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1239,6 +1623,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (230, 230) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(240, 240)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (230, 230).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1288,6 +1688,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(250, 250)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (240, 240).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1337,6 +1753,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(260, 260)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (250, 250).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1386,6 +1818,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(270, 270)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (260, 260).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1435,6 +1883,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(280, 280)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (270, 270).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1484,6 +1948,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(290, 290)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (280, 280).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1533,6 +2013,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(300, 300)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (290, 290).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1582,6 +2078,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(310, 310)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (300, 300).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1631,6 +2143,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(320, 320)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (310, 310).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1680,6 +2208,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (280, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(330, 330)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (320, 320).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1729,6 +2273,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(340, 340)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (330, 330).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1778,6 +2338,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(350, 350)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (340, 340).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1827,6 +2403,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(360, 360)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (350, 350).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1876,6 +2468,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(370, 370)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (360, 360).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1925,6 +2533,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(380, 380)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (370, 370).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -1974,6 +2598,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(390, 390)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (380, 380).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2023,6 +2663,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(400, 400)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (390, 390).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2072,6 +2728,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(410, 410)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (400, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2121,6 +2793,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (370, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(420, 420)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (410, 410).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2170,6 +2858,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(430, 430)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (420, 420).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2219,6 +2923,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(440, 440)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (430, 430).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2268,6 +2988,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(450, 450)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (440, 440).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2317,6 +3053,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(460, 460)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (450, 450).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2366,6 +3118,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(470, 470)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (460, 460).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2415,6 +3183,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(480, 480)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (470, 470).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)
@@ -2464,6 +3248,22 @@ Drawing text 'Red to place disc' at (550, 20) color (255, 255, 255) size 30
 Drawing rectangle center (235, 400) size (2, 100) color (0, 255, 0)
 Drawing rectangle center (865, 400) size (2, 100) color (0, 255, 0)
 Drawing a disc center (460, 85) size 45 color (255, 0, 0)
+[SIMULATING MSG=MouseMovedTo(pos=(490, 490)) on MODEL BELOW]
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (480, 480).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O O O
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)

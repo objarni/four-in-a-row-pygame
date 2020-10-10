@@ -231,6 +231,10 @@ Drawing a disc center (230, 100) size 67 color (255, 255, 0)
 Drawing a disc center (870, 700) size 67 color (255, 0, 0)
 Drawing a disc center (325, 100) size 67 color (255, 255, 0)
 Drawing a disc center (775, 700) size 67 color (255, 0, 0)
+[SIMULATING MSG=LeftMouseDownAt(pos=(1, 1)) on MODEL BELOW]
+StartScreenState
+model.time=0
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing rectangle center (550, 400) size (650, 560) color (0, 0, 255)

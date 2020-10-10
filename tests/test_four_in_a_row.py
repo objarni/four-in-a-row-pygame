@@ -54,8 +54,10 @@ def simulate(model, messages):
     fake_api = FakeDrawingApi()
     view(model, fake_api)
     for msg in messages:
-        # Handle events to update state
         old_model_repr = print_model(model)
+        fake_log(f'[SIMULATING MSG={msg} on MODEL BELOW]\n{old_model_repr}\n')
+
+        # Handle events to update state
         model = update(model, msg)
 
         # Display current model, if any change found

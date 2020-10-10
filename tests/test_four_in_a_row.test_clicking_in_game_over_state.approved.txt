@@ -53,6 +53,11 @@ Drawing text 'GAME OVER' at (550, 355) color (255, 255, 255) size 45
 Drawing text 'RED WON!' at (548, 443) color (255, 255, 255) size 45
 Drawing text 'RED WON!' at (552, 447) color (0, 0, 0) size 45
 Drawing text 'RED WON!' at (550, 445) color (255, 0, 0) size 45
+[SIMULATING MSG=LeftMouseDownAt(pos=(1, 1)) on MODEL BELOW]
+GameOverState
+Red won.
+
+
 [STATE CHANGE, VIEWING]
 Drawing rectangle center (550, 400) size (1100, 800) color (0, 0, 0)
 Drawing image 'bg' at (550, 400) dimension (1100, 800)
