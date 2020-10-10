@@ -1,18 +1,20 @@
-from collections import defaultdict
-
 import pygame
 from approvaltests import verify
 
-from src.four_in_a_row import (GameOverState, GameState, StartScreenState,
-                               update, view, ColumnWasClicked,
-                               LeftMouseDownAt, MouseMovedTo,
-                               print_model, WIDTH, HEIGHT)
+import src.constants
 import src.four_in_a_row
+import src.states
+import src.update
+from src.constants import EMPTY, RED, YELLOW, ROWS, COLUMNS
+from src.constants import (WIDTH, HEIGHT)
+from src.messages import LeftMouseDownAt, ColumnWasClicked, MouseMovedTo
+from src.states import GameState, GameOverState, StartScreenState
+from src.update import print_color
 
 
 class FakeDrawingApi:
     def __init__(self):
-        self.surface = pygame.Surface(src.four_in_a_row.SCREENDIM)
+        self.surface = pygame.Surface(src.constants.SCREENDIM)
         self.real_api = src.four_in_a_row.DrawingAPI(self.surface, '../res')
 
     def draw_rectangle(self, center, size, color):
@@ -54,6 +56,21 @@ assert rgb_to_ascii(200, 200, 0) == 'Y'
 assert rgb_to_ascii(200, 200, 200) == 'W'
 
 
+def print_model(model):
+    state_string = model.__class__.__name__ + '\n'
+    if isinstance(model, StartScreenState):
+        state_string += f'{model.time=}'
+    if isinstance(model, GameOverState):
+        state_string += f'{print_color(model.winner).title()} won.\n'
+    if isinstance(model, GameState):
+        state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
+        state_string += f'{model.time=}\n'
+        state_string += f'The mouse is at {model.mouse_pos}.\n'
+        state_string += f'{model.mouse_down_time=}\n'
+        state_string += board_to_string(model.board)
+    return state_string
+
+
 def print_result(model_and_surface):
     (model, surface) = model_and_surface
     ascii_art_width = 79
@@ -79,6 +96,20 @@ SIMULATION LOG:
 {log}'''
 
 
+def board_to_string(board):
+    board_string = ''
+    symbols = {
+        EMPTY: 'O',
+        RED: 'R',
+        YELLOW: 'Y'
+    }
+    board_string += "0 1 2 3 4 5 6\n"
+    board_string += "-------------\n"
+    for y in range(ROWS):
+        board_string += ' '.join(symbols[board[(x, y)]] for x in range(COLUMNS)) + '\n'
+    return board_string
+
+
 log = ''
 
 
@@ -87,13 +118,13 @@ def fake_log(s):
     log += f"LOG: {s}\n"
 
 
-src.four_in_a_row.log = fake_log
+src.update.log = fake_log
 
 
 def setup_function():
     global log
-    log = ''
     pygame.init()
+    log = ''
 
 
 def simulate(model, messages):
@@ -105,12 +136,12 @@ def simulate(model, messages):
     log += f"{print_model(model)}\n\n\n"
     for msg in messages:
         log += f"[SIMULATING MSG={msg}]\n\n"
-        model = update(model, msg)
+        model = src.update.update(model, msg)
         log += f"===Model state===\n"
         log += f"{print_model(model)}\n\n\n"
     log += f"[SIMULATION ENDED]"
 
-    view(model, fake_api)
+    src.view.view(model, fake_api)
     return (model, fake_api.surface)
 
 
@@ -176,10 +207,7 @@ def test_startscreen():
 
 
 def test_clicking_in_game_over_state():
-    print("HESAN")
-    import os
-    print(os.getcwd())
-    model = GameOverState(winner=src.four_in_a_row.RED, board=src.four_in_a_row.empty_board())
+    model = GameOverState(winner=src.constants.RED, board=src.states.empty_board())
     result = simulate(model, [LeftMouseDownAt((1, 1))])
     verify(print_result(result))
 
