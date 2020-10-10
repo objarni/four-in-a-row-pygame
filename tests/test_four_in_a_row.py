@@ -11,21 +11,25 @@ import src.four_in_a_row
 
 class FakeDrawingApi:
     def draw_rectangle(self, center, size, color):
+        return
         src.four_in_a_row.log(f"Drawing rectangle center {center} size {size} color {color}")
 
     def draw_disc(self, center, size, color):
+        return
         src.four_in_a_row.log(f'Drawing a disc center {center} size {size} color {color}')
 
     def draw_text(self, center, text, size, color):
+        return
         src.four_in_a_row.log(f"Drawing text '{text}' at {center} color {color} size {size}")
 
     def draw_image(self, center, name, dimension):
+        return
         src.four_in_a_row.log(f"Drawing image '{name}' at {center} dimension {dimension}")
 
 
 def print_state_and_log(model):
     state_string = print_model(model)
-    return f'STATE:\n{state_string}\n\nLOG:\n{log}'
+    return f'FINAL STATE:\n{state_string}\n\nSIMULATION LOG:\n{log}'
 
 
 def fake_view_model(model):
@@ -52,18 +56,17 @@ def setup_function():
 def simulate(model, messages):
     # Mimics behaviour of main event loop in four_in_a_row
     fake_api = FakeDrawingApi()
+    fake_log(f"[SIMULATION STARTING]")
+    fake_log(f"===Model state===")
+    fake_log(f"{print_model(model)}\n\n")
     view(model, fake_api)
     for msg in messages:
-        old_model_repr = print_model(model)
-        fake_log(f'[SIMULATING MSG={msg} on MODEL BELOW]\n{old_model_repr}\n')
-
-        # Handle events to update state
+        fake_log(f'[SIMULATING MSG={msg}]\n')
         model = update(model, msg)
-
-        # Display current model, if any change found
-        if old_model_repr != print_model(model):
-            fake_log("[STATE CHANGE, VIEWING]")
-            view(model, fake_api)
+        #view(model, fake_api)
+        fake_log(f"===Model state===")
+        fake_log(f"{print_model(model)}\n\n")
+    fake_log(f"[SIMULATION ENDED]")
 
     return model
 

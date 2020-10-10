@@ -1,5 +1,5 @@
-STATE:
+FINAL STATE:
 StartScreenState
 model.time=0
 
-LOG:
+SIMULATION LOG:

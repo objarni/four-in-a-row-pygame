@@ -106,8 +106,6 @@ def place_brick(board, color, column):
         y = ROWS - i - 1
         if board[(column, y)] == EMPTY:
             board[(column, y)] = color
-            log("Board state is now:")
-            log(board_to_string(board))
             break
     return board
 
