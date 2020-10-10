@@ -9,6 +9,7 @@ DROP_DELAY_MS = 250
 
 # CONSTANTS, Graphics #
 WIDTH, HEIGHT = 1100, 800
+SCREENDIM = (WIDTH, HEIGHT)
 DISC_DIAMETER = 90
 DISC_RADIUS = DISC_DIAMETER // 2
 BIG_TEXT = 45
@@ -236,23 +237,24 @@ def view_gameoverstate(api, model):
 
 # PyGame drawing wrapper
 class DrawingAPI:
-    def __init__(self, screen):
+    def __init__(self, screen, resource_path):
         self.screen = screen
         self.font_name = pygame.font.match_font('arial')
         self.image_dict = {}
+        self.resource_path = resource_path
 
     def draw_rectangle(self, center, size, color):
-        log(f"Drawing rectangle center {center} size {size} color {color}")
+        #log(f"Drawing rectangle center {center} size {size} color {color}")
         r = pygame.Rect(0, 0, *size)
         r.center = center
         pygame.draw.rect(self.screen, color, r)
 
     def draw_disc(self, center, size, color):
-        log(f'Drawing a disc center {center} size {size} color {color}')
+        #log(f'Drawing a disc center {center} size {size} color {color}')
         pygame.draw.circle(self.screen, color, center, size, size)
 
     def draw_text(self, center, text, size, color):
-        log(f"Drawing text '{text}' at {center} color {color} size {size}")
+        #log(f"Drawing text '{text}' at {center} color {color} size {size}")
         font = pygame.font.Font(self.font_name, size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
@@ -267,7 +269,7 @@ class DrawingAPI:
         self.screen.blit(image, pos)
 
     def load_and_scale(self, name, dimension):
-        p = f'res/{name}.png'
+        p = f'{self.resource_path}/{name}.png'
         image = pygame.image.load(p)
         return pygame.transform.scale(image, dimension)
 
@@ -382,7 +384,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Four in a row")
-    api = DrawingAPI(screen)
+    api = DrawingAPI(screen, 'res')
     mainloop(api)
     pygame.quit()
 
