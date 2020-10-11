@@ -113,12 +113,6 @@ class AudioAPI:
 if __name__ == '__main__':
     main()
 
-#   api.play_music('music')
-#   api.stop_music()
-#     pygame.mixer.music.play()
-#     pygame.mixer.music.stop()
-#     pygame.mixer.music.load('res/music.ogg')
-# TODO: approval tested music playback
 # TODO: all states as named tuples instead of classes and initial_GameState function
 # TODO: refactor to many states instead of 'mixed in' states
 # TODO: sfx
