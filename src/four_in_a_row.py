@@ -119,3 +119,5 @@ if __name__ == '__main__':
 # TODO: little man easter egg
 # TODO: remove old_model_repr logic (animations on every screen so was premature optimization after all, but fun exp!)
 # TODO: ALSA blocks mixer init. Can it be solved without resorting to 'catch exception / null audio api'?
+# TODO: idea to reduce missing updating projectors with new state:
+#         investigate using nametuple string representation in projectors
