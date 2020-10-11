@@ -8,7 +8,7 @@ from src.update import update
 from src.view import view
 
 # PyGame drawing wrapper
-from tests.test_four_in_a_row import print_model
+from tests.test_four_in_a_row import project_model
 
 
 class DrawingAPI:
@@ -55,7 +55,7 @@ def mainloop(drawing_api):
     pygame.display.update()
     clock = pygame.time.Clock()
     while True:
-        old_model_repr = print_model(model)
+        old_model_repr = project_model(model)
 
         # A tick happens every time around the loop!
         model = update(model, Tick(pygame.time.get_ticks()))
@@ -81,7 +81,7 @@ def mainloop(drawing_api):
                 model = update(model, msg)
 
         # Display current model, if any change found
-        if old_model_repr != print_model(model):
+        if old_model_repr != project_model(model):
             view(model, api)
 
         pygame.display.update()
@@ -105,3 +105,8 @@ if __name__ == '__main__':
 #     pygame.mixer.init()
 #     pygame.mixer.music.load('res/music.ogg')
 #     pygame.mixer.music.play()
+# TODO: approval tested music playback
+# TODO: all states as named tuples instead of classes and initial_GameState function
+# TODO: refactor to many states instead of 'mixed in' states
+# TODO: sfx
+# TODO: little man easter egg
