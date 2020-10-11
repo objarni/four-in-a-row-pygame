@@ -30,6 +30,7 @@ def update(model, msg, audio_api):
         if isinstance(msg, LeftMouseUpAt):
             model.mouse_down_time = None
         if isinstance(msg, ColumnWasClicked):
+            audio_api.play_sound('drop')
             model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
             model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
             for color in [RED, YELLOW]:

@@ -95,6 +95,7 @@ O O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=0)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 0
 ===Model state===
 GameState
@@ -115,6 +116,7 @@ R O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=0)]
 
+Playing sound drop.
 LOG: Placing brick color yellow in column 0
 ===Model state===
 GameState
@@ -135,6 +137,7 @@ R O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=0)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 0
 ===Model state===
 GameState
@@ -155,6 +158,7 @@ R O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=0)]
 
+Playing sound drop.
 LOG: Placing brick color yellow in column 0
 ===Model state===
 GameState

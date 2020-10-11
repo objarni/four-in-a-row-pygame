@@ -38,6 +38,10 @@ class FakeAudioAPI:
         global log
         log += f"Stopping music playback.\n"
 
+    def play_sound(self, name):
+        global log
+        log += f"Playing sound {name}.\n"
+
 
 def rgb_int2tuple(rgb):
     return (rgb // 256 // 256 % 256, rgb // 256 % 256, rgb % 256)

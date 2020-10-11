@@ -100,6 +100,7 @@ class DrawingAPI:
 class AudioAPI:
     def __init__(self, resource_path):
         self.resource_path = resource_path
+        self.sound = {}
 
     def play_music(self, name):
         p = f'{self.resource_path}/{name}.ogg'
@@ -108,6 +109,12 @@ class AudioAPI:
 
     def stop_music(self):
         pygame.mixer.music.stop()
+
+    def play_sound(self, name):
+        if name not in self.sound:
+            p = f'{self.resource_path}/{name}.wav'
+            self.sound[name] = pygame.mixer.Sound(p)
+        self.sound[name].play()
 
 
 if __name__ == '__main__':

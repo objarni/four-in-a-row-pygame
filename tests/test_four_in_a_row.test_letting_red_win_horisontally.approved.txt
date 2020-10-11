@@ -84,6 +84,7 @@ O O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=0)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 0
 ===Model state===
 GameState
@@ -104,6 +105,7 @@ R O O O O O O
 
 [SIMULATING MSG=ColumnWasClicked(column=5)]
 
+Playing sound drop.
 LOG: Placing brick color yellow in column 5
 ===Model state===
 GameState
@@ -124,6 +126,7 @@ R O O O O Y O
 
 [SIMULATING MSG=ColumnWasClicked(column=1)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 1
 ===Model state===
 GameState
@@ -144,6 +147,7 @@ R R O O O Y O
 
 [SIMULATING MSG=ColumnWasClicked(column=5)]
 
+Playing sound drop.
 LOG: Placing brick color yellow in column 5
 ===Model state===
 GameState
@@ -164,6 +168,7 @@ R R O O O Y O
 
 [SIMULATING MSG=ColumnWasClicked(column=2)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 2
 ===Model state===
 GameState
@@ -184,6 +189,7 @@ R R R O O Y O
 
 [SIMULATING MSG=ColumnWasClicked(column=5)]
 
+Playing sound drop.
 LOG: Placing brick color yellow in column 5
 ===Model state===
 GameState
@@ -204,6 +210,7 @@ R R R O O Y O
 
 [SIMULATING MSG=ColumnWasClicked(column=3)]
 
+Playing sound drop.
 LOG: Placing brick color red in column 3
 LOG: Found 4-in-a-row at (0, 5) dir (1, 0)
 ===Model state===
