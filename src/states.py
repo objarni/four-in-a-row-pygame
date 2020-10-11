@@ -3,6 +3,12 @@ from collections import defaultdict, namedtuple
 from src.constants import CENTER, RED, EMPTY
 
 
+class StartScreenState(object):
+    def __init__(self):
+        self.time = 0
+        self.music_playing = False
+
+
 class GameState(object):
     def __init__(self):
         self.board = empty_board()
@@ -17,9 +23,3 @@ def empty_board():
 
 
 GameOverState = namedtuple('GameOverState', 'winner board')
-
-
-class StartScreenState(object):
-    def __init__(self):
-        self.time = 0
-        self.music_playing = False

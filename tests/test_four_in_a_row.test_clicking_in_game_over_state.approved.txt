@@ -1,6 +1,8 @@
 FINAL STATE:
 StartScreenState
 model.time=0
+model.music_playing=False
+
 
 FINAL SCREEN:
 BWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
@@ -75,6 +77,8 @@ Red won.
 ===Model state===
 StartScreenState
 model.time=0
+model.music_playing=False
+
 
 
 [SIMULATION ENDED]

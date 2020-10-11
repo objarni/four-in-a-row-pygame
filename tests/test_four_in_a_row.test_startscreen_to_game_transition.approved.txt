@@ -79,10 +79,13 @@ SIMULATION LOG:
 ===Model state===
 StartScreenState
 model.time=0
+model.music_playing=False
+
 
 
 [SIMULATING MSG=LeftMouseDownAt(pos=(1, 1))]
 
+Stopping music playback.
 ===Model state===
 GameState
 It is reds turn.

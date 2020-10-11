@@ -12,7 +12,7 @@ from src.states import GameState, GameOverState, StartScreenState
 from src.update import print_color
 
 
-class FakeDrawingApi:
+class FakeDrawingAPI:
     def __init__(self):
         self.surface = pygame.Surface(src.constants.SCREENDIM)
         self.real_api = src.four_in_a_row.DrawingAPI(self.surface, '../res')
@@ -28,6 +28,15 @@ class FakeDrawingApi:
 
     def draw_image(self, center, name, dimension):
         self.real_api.draw_image(center, name, dimension)
+
+class FakeAudioAPI:
+    def play_music(self, name):
+        global log
+        log += f"Starting music {name}.\n"
+
+    def stop_music(self):
+        global log
+        log += f"Stopping music playback.\n"
 
 
 def rgb_int2tuple(rgb):
@@ -74,7 +83,8 @@ SIMULATION LOG:
 def project_model(model):
     state_string = model.__class__.__name__ + '\n'
     if isinstance(model, StartScreenState):
-        state_string += f'{model.time=}'
+        state_string += f'{model.time=}\n'
+        state_string += f'{model.music_playing=}\n'
     if isinstance(model, GameOverState):
         state_string += f'{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
@@ -135,19 +145,20 @@ def setup_function():
 def simulate(model, messages):
     global log
     # Mimics behaviour of main event loop in four_in_a_row
-    fake_api = FakeDrawingApi()
+    fake_drawing = FakeDrawingAPI()
+    fake_audio = FakeAudioAPI()
     log += f"[SIMULATION STARTING]\n"
     log += f"===Model state===\n"
     log += f"{project_model(model)}\n\n\n"
     for msg in messages:
         log += f"[SIMULATING MSG={msg}]\n\n"
-        model = src.update.update(model, msg)
+        model = src.update.update(model, msg, fake_audio)
         log += f"===Model state===\n"
         log += f"{project_model(model)}\n\n\n"
     log += f"[SIMULATION ENDED]"
 
-    src.view.view(model, fake_api)
-    return (model, fake_api.surface)
+    src.view.view(model, fake_drawing)
+    return (model, fake_drawing.surface)
 
 
 def test_first_placed_brick_is_red():
@@ -207,7 +218,7 @@ def test_backslash_yellow_win():
 
 def test_startscreen():
     model = StartScreenState()
-    result = simulate(model, [])
+    result = simulate(model, [src.messages.Tick(ms) for ms in range(3)])
     verify(project(result))
 
 

@@ -3,11 +3,15 @@ from src.messages import LeftMouseDownAt, Tick, ColumnWasClicked, MouseMovedTo, 
 from src.states import StartScreenState, GameState, GameOverState
 
 
-def update(model, msg):
+def update(model, msg, audio_api):
     if isinstance(model, StartScreenState):
         if isinstance(msg, LeftMouseDownAt):
+            audio_api.stop_music()
             return GameState()
         if isinstance(msg, Tick):
+            if not model.music_playing:
+                audio_api.play_music('music')
+                model.music_playing = True
             model.time = msg.time
             return model
     if isinstance(model, GameState):
@@ -16,7 +20,7 @@ def update(model, msg):
             if model.mouse_down_time:
                 if model.time > model.mouse_down_time + DROP_DELAY_MS:
                     model.mouse_down_time = None
-                    model = update(model, ColumnWasClicked(convert_to_column(model.mouse_pos[0])))
+                    model = update(model, ColumnWasClicked(convert_to_column(model.mouse_pos[0])), audio_api)
         if isinstance(msg, MouseMovedTo):
             model.mouse_pos = msg.pos
         if isinstance(msg, LeftMouseDownAt):

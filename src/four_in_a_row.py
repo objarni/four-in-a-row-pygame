@@ -7,8 +7,59 @@ from src.constants import WIDTH, HEIGHT, FPS
 from src.update import update
 from src.view import view
 
-# PyGame drawing wrapper
 from tests.test_four_in_a_row import project_model
+
+
+def main():
+    global api
+    pygame.init()
+    pygame.mixer.init()
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Four in a row")
+    resource_folder = 'res'
+    drawing_api = DrawingAPI(screen, resource_folder)
+    audio_api = AudioAPI(resource_folder)
+    mainloop(drawing_api, audio_api)
+    pygame.quit()
+
+
+def mainloop(drawing_api, audio_api):
+    model = StartScreenState()
+    view(model, drawing_api)
+    pygame.display.update()
+    clock = pygame.time.Clock()
+    while True:
+        old_model_repr = project_model(model)
+
+        # A tick happens every time around the loop!
+        model = update(model, Tick(pygame.time.get_ticks()), audio_api)
+
+        # Translate low level events to domain events
+        while ev := pygame.event.poll():
+            msg = None
+            if ev.type == pygame.MOUSEBUTTONDOWN:
+                if ev.button == 1:
+                    msg = LeftMouseDownAt(ev.pos)
+            if ev.type == pygame.MOUSEBUTTONUP:
+                if ev.button == 1:
+                    msg = LeftMouseUpAt(ev.pos)
+            if ev.type == pygame.MOUSEMOTION:
+                msg = MouseMovedTo(ev.pos)
+            if ev.type == pygame.KEYDOWN:
+                if ev.key == pygame.K_q:
+                    return
+            elif ev.type == pygame.QUIT:
+                return
+
+            if msg:
+                model = update(model, msg, audio_api)
+
+        # Display current model, if any change found
+        if old_model_repr != project_model(model):
+            view(model, drawing_api)
+
+        pygame.display.update()
+        clock.tick(FPS)
 
 
 class DrawingAPI:
@@ -46,67 +97,31 @@ class DrawingAPI:
         return pygame.transform.scale(image, dimension)
 
 
-# MAIN PROGRAM #
+class AudioAPI:
+    def __init__(self, resource_path):
+        self.resource_path = resource_path
 
+    def play_music(self, name):
+        p = f'{self.resource_path}/{name}.ogg'
+        pygame.mixer.music.load(p)
+        pygame.mixer.music.play(-1)
 
-def mainloop(drawing_api):
-    model = StartScreenState()
-    view(model, drawing_api)
-    pygame.display.update()
-    clock = pygame.time.Clock()
-    while True:
-        old_model_repr = project_model(model)
-
-        # A tick happens every time around the loop!
-        model = update(model, Tick(pygame.time.get_ticks()))
-
-        # Translate low level events to domain events
-        while ev := pygame.event.poll():
-            msg = None
-            if ev.type == pygame.MOUSEBUTTONDOWN:
-                if ev.button == 1:
-                    msg = LeftMouseDownAt(ev.pos)
-            if ev.type == pygame.MOUSEBUTTONUP:
-                if ev.button == 1:
-                    msg = LeftMouseUpAt(ev.pos)
-            if ev.type == pygame.MOUSEMOTION:
-                msg = MouseMovedTo(ev.pos)
-            if ev.type == pygame.KEYDOWN:
-                if ev.key == pygame.K_q:
-                    return
-            elif ev.type == pygame.QUIT:
-                return
-
-            if msg:
-                model = update(model, msg)
-
-        # Display current model, if any change found
-        if old_model_repr != project_model(model):
-            view(model, api)
-
-        pygame.display.update()
-        clock.tick(FPS)
-
-
-def main():
-    global api
-    pygame.init()
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("Four in a row")
-    api = DrawingAPI(screen, 'res')
-    mainloop(api)
-    pygame.quit()
+    def stop_music(self):
+        pygame.mixer.music.stop()
 
 
 if __name__ == '__main__':
     main()
 
-#     pygame.mixer.music.stop()
-#     pygame.mixer.init()
-#     pygame.mixer.music.load('res/music.ogg')
+#   api.play_music('music')
+#   api.stop_music()
 #     pygame.mixer.music.play()
+#     pygame.mixer.music.stop()
+#     pygame.mixer.music.load('res/music.ogg')
 # TODO: approval tested music playback
 # TODO: all states as named tuples instead of classes and initial_GameState function
 # TODO: refactor to many states instead of 'mixed in' states
 # TODO: sfx
 # TODO: little man easter egg
+# TODO: remove old_model_repr logic (animations on every screen so was premature optimization after all, but fun exp!)
+# TODO: ALSA blocks mixer init. Can it be solved without resorting to 'catch exception / null audio api'?
