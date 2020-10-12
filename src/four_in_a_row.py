@@ -121,7 +121,6 @@ if __name__ == '__main__':
 
 # TODO: all states as named tuples instead of classes and initial_GameState function
 # TODO: refactor to many states instead of 'mixed in' states
-# TODO: sfx
 # TODO: little man easter egg
 # TODO: remove old_model_repr logic (animations on every screen so was premature optimization after all, but fun exp!)
 # TODO: ALSA blocks mixer init. Can it be solved without resorting to 'catch exception / null audio api'?
