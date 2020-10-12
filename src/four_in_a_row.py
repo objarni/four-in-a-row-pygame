@@ -65,9 +65,9 @@ def mainloop(drawing_api, audio_api):
 class DrawingAPI:
     def __init__(self, screen, resource_path):
         self.screen = screen
-        self.font_name = pygame.font.match_font('arial')
         self.image_dict = {}
         self.resource_path = resource_path
+        self.font = pygame.font.Font(f'{self.resource_path}/font.ttf', 30)
 
     def draw_rectangle(self, center, size, color):
         r = pygame.Rect(0, 0, *size)
@@ -78,8 +78,8 @@ class DrawingAPI:
         pygame.draw.circle(self.screen, color, center, size, size)
 
     def draw_text(self, center, text, size, color):
-        font = pygame.font.Font(self.font_name, size)
-        text_surface = font.render(text, True, color)
+        # TODO: remove unused size argument
+        text_surface = self.font.render(text, True, color)
         text_rect = text_surface.get_rect()
         text_rect.center = center
         self.screen.blit(text_surface, text_rect)
