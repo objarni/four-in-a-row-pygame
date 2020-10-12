@@ -4,14 +4,14 @@ from src.states import StartScreenState, GameState, GameOverState
 from src.update import print_color, convert_to_column, positions_in_print_order
 
 
-def view(model, api):
-    clear_screen(api)
+def view(model, drawing_api):
+    clear_screen(drawing_api)
     if isinstance(model, StartScreenState):
-        view_startscreenstate(model, api)
+        view_startscreenstate(model, drawing_api)
     if isinstance(model, GameState):
-        view_gamestate(api, model)
+        view_gamestate(drawing_api, model)
     if isinstance(model, GameOverState):
-        view_gameoverstate(api, model)
+        view_gameoverstate(drawing_api, model)
 
 
 def view_startscreenstate(model, api):

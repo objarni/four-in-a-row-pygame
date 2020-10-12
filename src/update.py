@@ -34,6 +34,7 @@ def update(model, msg, audio_api):
                 audio_api.play_sound('blocked')
                 return model
             audio_api.play_sound('drop')
+            model.juice = 10
             model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
             model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
             for color in [RED, YELLOW]:
