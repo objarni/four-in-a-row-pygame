@@ -77,8 +77,7 @@ class DrawingAPI:
     def draw_disc(self, center, size, color):
         pygame.draw.circle(self.screen, color, center, size, size)
 
-    def draw_text(self, center, text, size, color):
-        # TODO: remove unused size argument
+    def draw_text(self, center, text, color):
         text_surface = self.font.render(text, True, color)
         text_rect = text_surface.get_rect()
         text_rect.center = center

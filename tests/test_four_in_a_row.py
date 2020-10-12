@@ -23,8 +23,8 @@ class FakeDrawingAPI:
     def draw_disc(self, center, size, color):
         self.real_api.draw_disc(center, size, color)
 
-    def draw_text(self, center, text, size, color):
-        self.real_api.draw_text(center, text, size, color)
+    def draw_text(self, center, text, color):
+        self.real_api.draw_text(center, text, color)
 
     def draw_image(self, center, name, dimension):
         self.real_api.draw_image(center, name, dimension)

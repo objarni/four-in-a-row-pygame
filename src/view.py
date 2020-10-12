@@ -1,4 +1,4 @@
-from src.constants import (CENTER, WIDTH, HEIGHT, BIG_TEXT, Color, CENTER_X, CENTER_Y, DISC_DIAMETER, MID_TEXT, \
+from src.constants import (CENTER, WIDTH, HEIGHT, Color, CENTER_X, CENTER_Y, DISC_DIAMETER, \
                            BOARD_LEFT, BOARD_RIGHT, DISC_RADIUS, BOARD_HEIGHT, DROP_DELAY_MS, COLUMNS, ROWS, EMPTY, RED)
 from src.states import StartScreenState, GameState, GameOverState
 from src.update import print_color, convert_to_column, positions_in_print_order
@@ -16,10 +16,9 @@ def view(model, api):
 
 def view_startscreenstate(model, api):
     api.draw_image(CENTER, 'background', (WIDTH, HEIGHT))
-    edged_text(api, "FOUR-IN-A-ROW", CENTER, BIG_TEXT, Color.GREEN)
+    edged_text(api, "FOUR-IN-A-ROW", CENTER, Color.GREEN)
     edged_text(api, "Click left mouse button to play!",
-               (CENTER_X, CENTER_Y + BIG_TEXT),
-               BIG_TEXT,
+               (CENTER_X, CENTER_Y + 30),
                Color.YELLOW)
     for i in range(200):
         api.draw_disc((int(model.time / 2 + i ** 2 * 37) % WIDTH, int(model.time + i * 237) % HEIGHT), 1, Color.BLUE)
@@ -41,8 +40,7 @@ assert frac(10, 20, 17.5) == 0.75
 def view_gamestate(api, model):
     board = model.board
     draw_board(api, board)
-    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", MID_TEXT,
-                  Color.WHITE)
+    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", Color.WHITE)
     api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
     api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
 
@@ -69,33 +67,30 @@ def view_gameoverstate(api, model):
 
     edged_text(api,
                "GAME OVER",
-               (CENTER_X, CENTER_Y - BIG_TEXT), BIG_TEXT,
+               (CENTER_X, CENTER_Y - 30),
                Color.WHITE)
 
     edged_text(api,
                f"{print_color(model.winner)} won!".upper(),
-               ((CENTER_X), (CENTER_Y + BIG_TEXT)), BIG_TEXT,
+               ((CENTER_X), (CENTER_Y + 30)),
                rgb_from_color(model.winner))
 
 
-def edged_text(api, txt, pos, size, color):
+def edged_text(api, txt, pos, color):
     (x, y) = pos
     api.draw_text(
         (x - 2, y - 2),
         txt,
-        size,
         Color.WHITE
     )
     api.draw_text(
         (x + 2, y + 2),
         txt,
-        size,
         Color.BLACK
     )
     api.draw_text(
         (x, y),
         txt,
-        size,
         color
     )
 
