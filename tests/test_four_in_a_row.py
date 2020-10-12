@@ -29,6 +29,7 @@ class FakeDrawingAPI:
     def draw_image(self, center, name, dimension):
         self.real_api.draw_image(center, name, dimension)
 
+
 class FakeAudioAPI:
     def play_music(self, name):
         global log
@@ -81,7 +82,8 @@ FINAL SCREEN:
 {ascii_art}
 
 SIMULATION LOG:
-{log}'''
+{log}
+'''
 
 
 def project_model(model):
@@ -173,6 +175,12 @@ def test_first_placed_brick_is_red():
 def test_placing_4_bricks_in_first_column():
     model = GameState()
     result = simulate(model, [ColumnWasClicked(0)] * 4)
+    verify(project(result))
+
+
+def test_placing_too_many_bricks_in_first_column():
+    model = GameState()
+    result = simulate(model, [ColumnWasClicked(0)] * 8)
     verify(project(result))
 
 

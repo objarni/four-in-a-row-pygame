@@ -6,8 +6,8 @@ The mouse is at (550, 400).
 model.mouse_down_time=None
 0 1 2 3 4 5 6
 -------------
-O O O O O O O
-O O O O O O O
+Y O O O O O O
+R O O O O O O
 Y O O O O O O
 R O O O O O O
 Y O O O O O O
@@ -25,19 +25,19 @@ FINAL SCREEN:
 .....................................RRRRRR....................................
 .....................................RRRRRR....................................
 .................BBBBBBBBBBBBBBBBBBBBBBRRBBBBBBBBBBBBBBBBBBBBBB................
-.................BB....BB....BBB....BB....BB....BBB....BB....BB................
-.................B.....B......B.....B......B.....B......B.....B................
-...............................................................................
-...............................................................................
-.................B.....B......B.....B......B.....B......B.....B................
-.................BB....BB....BBB...BBB....BBB...BBB....BB....BB................
-.................BB...BBBB..BBBB...BBBB..BBBB...BBBB..BBBB...BB................
-.................B.....B......B.....B......B.....B......B.....B................
-.................B............................................B................
-...............................................................................
-.................B............B..................B............B................
-.................B.....BB.....B.....BB....BB.....B.....BB.....B................
-.................BBB.BBBBB..BBBBB.BBBBB..BBBBB.BBBBB..BBBBB.BBB................
+.................BBYYYYBB....BBB....BB....BB....BBB....BB....BB................
+.................BYYYYYB......B.....B......B.....B......B.....B................
+.................YYYYYYY.......................................................
+.................YYYYYYY.......................................................
+.................BYYYYYB......B.....B......B.....B......B.....B................
+.................BBYYYYBB....BBB...BBB....BBB...BBB....BB....BB................
+.................BBRRRBBBB..BBBB...BBBB..BBBB...BBBB..BBBB...BB................
+.................BRRRRRB......B.....B......B.....B......B.....B................
+.................BRRRRRR......................................B................
+.................RRRRRRR.......................................................
+.................BRRRRRR......B..................B............B................
+.................BRRRRRBB.....B.....BB....BB.....B.....BB.....B................
+.................BBBRBBBBB..BBBBB.BBBBB..BBBBB.BBBBB..BBBBB.BBB................
 .................BYYYYYBB....BB.....BB....BB.....BB....BB.....B................
 .................BYYYYYY......B.....B......B.....B............B................
 .................YYYYYYY.......................................................
@@ -170,6 +170,88 @@ model.mouse_down_time=None
 -------------
 O O O O O O O
 O O O O O O O
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+
+
+
+[SIMULATING MSG=ColumnWasClicked(column=0)]
+
+Playing sound drop.
+LOG: Placing brick color red in column 0
+===Model state===
+GameState
+It is yellows turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+
+
+
+[SIMULATING MSG=ColumnWasClicked(column=0)]
+
+Playing sound drop.
+LOG: Placing brick color yellow in column 0
+===Model state===
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+
+
+
+[SIMULATING MSG=ColumnWasClicked(column=0)]
+
+Playing sound blocked.
+===Model state===
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+Y O O O O O O
+R O O O O O O
+
+
+
+[SIMULATING MSG=ColumnWasClicked(column=0)]
+
+Playing sound blocked.
+===Model state===
+GameState
+It is reds turn.
+model.time=None
+The mouse is at (550, 400).
+model.mouse_down_time=None
+0 1 2 3 4 5 6
+-------------
+Y O O O O O O
+R O O O O O O
 Y O O O O O O
 R O O O O O O
 Y O O O O O O
