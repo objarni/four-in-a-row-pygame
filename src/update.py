@@ -4,16 +4,38 @@ from src.states import StartScreenState, GameState, GameOverState
 
 
 def update(model, msg, audio_api):
-    if isinstance(model, StartScreenState):
-        if isinstance(msg, LeftMouseDownAt):
-            audio_api.stop_music()
-            return GameState()
-        if isinstance(msg, Tick):
-            if not model.music_playing:
-                audio_api.play_music('music')
-                model.music_playing = True
-            model.time = msg.time
-            return model
+    begin = lambda *args: args[-1]
+    def assign(o, a, v):
+        o.__setattr__(a, v)
+
+    case_of = {
+        (StartScreenState, LeftMouseDownAt): lambda: begin(
+                audio_api.stop_music(),
+                GameState()),
+        (StartScreenState, Tick): lambda: begin(
+                (assign(model, 'time', msg.time)),
+                (audio_api.play_music('music') if not model.music_playing else None),
+                (assign(model, 'music_playing', True)),
+                model)
+    }
+
+    # if isinstance(model, StartScreenState):
+    #     if isinstance(msg, LeftMouseDownAt):
+    #         audio_api.stop_music()
+    #         return GameState()
+    #     if isinstance(msg, Tick):
+    #         if not model.music_playing:
+    #             audio_api.play_music('music')
+    #             model.music_playing = True
+    #         model.time = msg.time
+    #         return model
+
+
+    for condition in case_of:
+        stateClass, msgClass = condition
+        if isinstance(model, stateClass) and isinstance(msg, msgClass):
+            return case_of[condition]()
+
     if isinstance(model, GameState):
         if isinstance(msg, Tick):
             model.time = msg.time
