@@ -37,37 +37,42 @@ def update(model, msg, audio_api):
             return case_of[condition]()
 
     if isinstance(model, GameState):
-        if isinstance(msg, Tick):
-            model.time = msg.time
-            if model.mouse_down_time:
-                if model.time > model.mouse_down_time + DROP_DELAY_MS:
-                    model.mouse_down_time = None
-                    model = update(model, ColumnWasClicked(convert_to_column(model.mouse_pos[0])), audio_api)
-        if isinstance(msg, MouseMovedTo):
-            model.mouse_pos = msg.pos
-        if isinstance(msg, LeftMouseDownAt):
-            if convert_to_column(msg.pos[0]) is not None:
-                model.mouse_down = msg.pos
-                model.mouse_down_time = model.time
-        if isinstance(msg, LeftMouseUpAt):
-            model.mouse_down_time = None
-        if isinstance(msg, ColumnWasClicked):
-            if model.board[(msg.column, 0)] != EMPTY:
-                audio_api.play_sound('blocked')
-                return model
-            audio_api.play_sound('drop')
-            model.juice = 10
-            model.board = place_brick(model.board, model.whos_turn_is_it, msg.column)
-            model.whos_turn_is_it = (model.whos_turn_is_it + 1) % 2
-            for color in [RED, YELLOW]:
-                won = check_winning_state(model.board, color)
-                if won:
-                    return GameOverState(winner=color, board=model.board)
+        return update_gamestate(model, msg, audio_api)
     if isinstance(model, GameOverState):
         if isinstance(msg, LeftMouseDownAt):
             return StartScreenState()
 
     return model
+
+
+def update_gamestate(gamestate, msg, audio_api):
+    if isinstance(msg, Tick):
+        gamestate.time = msg.time
+        if gamestate.mouse_down_time:
+            if gamestate.time > gamestate.mouse_down_time + DROP_DELAY_MS:
+                gamestate.mouse_down_time = None
+                gamestate = update(gamestate, ColumnWasClicked(convert_to_column(gamestate.mouse_pos[0])), audio_api)
+    if isinstance(msg, MouseMovedTo):
+        gamestate.mouse_pos = msg.pos
+    if isinstance(msg, LeftMouseDownAt):
+        if convert_to_column(msg.pos[0]) is not None:
+            gamestate.mouse_down = msg.pos
+            gamestate.mouse_down_time = gamestate.time
+    if isinstance(msg, LeftMouseUpAt):
+        gamestate.mouse_down_time = None
+    if isinstance(msg, ColumnWasClicked):
+        if gamestate.board[(msg.column, 0)] != EMPTY:
+            audio_api.play_sound('blocked')
+        else:
+            audio_api.play_sound('drop')
+            gamestate.juice = 10
+            gamestate.board = place_brick(gamestate.board, gamestate.whos_turn_is_it, msg.column)
+            gamestate.whos_turn_is_it = (gamestate.whos_turn_is_it + 1) % 2
+            for color in [RED, YELLOW]:
+                won = check_winning_state(gamestate.board, color)
+                if won:
+                    gamestate = GameOverState(winner=color, board=gamestate.board)
+    return gamestate
 
 
 def place_brick(board, color, column):
