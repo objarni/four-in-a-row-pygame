@@ -5,11 +5,10 @@ import src.constants
 import src.four_in_a_row
 import src.states
 import src.update
-from src.constants import EMPTY, RED, YELLOW, ROWS, COLUMNS
 from src.constants import (WIDTH, HEIGHT)
+from src.four_in_a_row import project_model
 from src.messages import LeftMouseDownAt, ColumnWasClicked, MouseMovedTo
 from src.states import GameState, GameOverState, StartScreenState
-from src.update import print_color
 
 
 class FakeDrawingAPI:
@@ -86,22 +85,6 @@ SIMULATION LOG:
 '''
 
 
-def project_model(model):
-    state_string = model.__class__.__name__ + '\n'
-    if isinstance(model, StartScreenState):
-        state_string += f'{model.time=}\n'
-        state_string += f'{model.music_playing=}\n'
-    if isinstance(model, GameOverState):
-        state_string += f'{print_color(model.winner).title()} won.\n'
-    if isinstance(model, GameState):
-        state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
-        state_string += f'{model.time=}\n'
-        state_string += f'The mouse is at {model.mouse_pos}.\n'
-        state_string += f'{model.mouse_down_time=}\n'
-        state_string += project_board(model.board)
-    return state_string
-
-
 def project_surface(surface):
     ascii_art_width = 79
     ascii_art_height = int(ascii_art_width // (WIDTH / HEIGHT))
@@ -115,20 +98,6 @@ def project_surface(surface):
             ascii_art += ascii_color
         ascii_art += '\n'
     return ascii_art
-
-
-def project_board(board):
-    board_string = ''
-    symbols = {
-        EMPTY: 'O',
-        RED: 'R',
-        YELLOW: 'Y'
-    }
-    board_string += "0 1 2 3 4 5 6\n"
-    board_string += "-------------\n"
-    for y in range(ROWS):
-        board_string += ' '.join(symbols[board[(x, y)]] for x in range(COLUMNS)) + '\n'
-    return board_string
 
 
 log = ''
