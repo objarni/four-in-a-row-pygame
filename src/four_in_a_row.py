@@ -1,13 +1,12 @@
 import pygame
 
 from src.messages import LeftMouseDownAt, LeftMouseUpAt, MouseMovedTo, Tick
+from src.printers import print_model
 from src.states import StartScreenState
 from src.constants import WIDTH, HEIGHT, FPS
 
 from src.update import update
 from src.view import view
-
-from tests.test_four_in_a_row import project_model
 
 
 def main():
@@ -29,7 +28,7 @@ def mainloop(drawing_api, audio_api):
     pygame.display.update()
     clock = pygame.time.Clock()
     while True:
-        old_model_repr = project_model(model)
+        old_model_repr = print_model(model)
 
         # A tick happens every time around the loop!
         model = update(model, Tick(pygame.time.get_ticks()), audio_api)
@@ -55,7 +54,7 @@ def mainloop(drawing_api, audio_api):
                 model = update(model, msg, audio_api)
 
         # Display current model, if any change found
-        if old_model_repr != project_model(model):
+        if old_model_repr != print_model(model):
             view(model, drawing_api)
 
         pygame.display.update()
@@ -126,3 +125,5 @@ if __name__ == '__main__':
 # TODO: ALSA blocks mixer init. Can it be solved without resorting to 'catch exception / null audio api'?
 # TODO: idea to reduce missing updating projectors with new state:
 #         investigate using nametuple string representation in projectors
+
+

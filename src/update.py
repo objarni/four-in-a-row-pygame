@@ -48,16 +48,20 @@ def update(model, msg, audio_api):
 def update_gamestate(gamestate, msg, audio_api):
     if isinstance(msg, Tick):
         gamestate.time = msg.time
-        if gamestate.mouse_down_time:
-            if gamestate.time > gamestate.mouse_down_time + DROP_DELAY_MS:
-                gamestate.mouse_down_time = None
-                gamestate = update(gamestate, ColumnWasClicked(convert_to_column(gamestate.mouse_pos[0])), audio_api)
+        if (
+            gamestate.mouse_down_time
+            and gamestate.time > gamestate.mouse_down_time + DROP_DELAY_MS
+        ):
+            gamestate.mouse_down_time = None
+            gamestate = update(gamestate, ColumnWasClicked(convert_to_column(gamestate.mouse_pos[0])), audio_api)
     if isinstance(msg, MouseMovedTo):
         gamestate.mouse_pos = msg.pos
-    if isinstance(msg, LeftMouseDownAt):
-        if convert_to_column(msg.pos[0]) is not None:
-            gamestate.mouse_down = msg.pos
-            gamestate.mouse_down_time = gamestate.time
+    if (
+        isinstance(msg, LeftMouseDownAt)
+        and convert_to_column(msg.pos[0]) is not None
+    ):
+        gamestate.mouse_down = msg.pos
+        gamestate.mouse_down_time = gamestate.time
     if isinstance(msg, LeftMouseUpAt):
         gamestate.mouse_down_time = None
     if isinstance(msg, ColumnWasClicked):
@@ -94,7 +98,7 @@ def check_winning_state(board, color):
         for dir in [(0, 1), (1, 0), (1, 1), (-1, 1)]:
             cells = extract(board, (x, y), dir)
             if all(cell == color for cell in cells):
-                log(f"Found 4-in-a-row at {x, y} dir {dir}")
+                log(f"Found 4-in-a-row at {x, y} direction {dir}")
                 return True
     return False
 

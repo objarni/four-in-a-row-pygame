@@ -1,3 +1,11 @@
+SCENARIO:
+startscreen
+events:
+Tick(time=0)
+Tick(time=1)
+Tick(time=2)
+
+
 FINAL STATE:
 StartScreenState
 model.time=2

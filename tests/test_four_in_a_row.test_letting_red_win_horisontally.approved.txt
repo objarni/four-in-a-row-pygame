@@ -1,5 +1,22 @@
+SCENARIO:
+letting_red_win_horisontally
+Player moves:
+  RED: 0  YELLOW: 5
+  RED: 1  YELLOW: 5
+  RED: 2  YELLOW: 5
+  RED: 3
+
 FINAL STATE:
 GameOverState
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+O O O O O Y O
+R R R R O Y O
+
 Red won.
 
 
@@ -212,9 +229,18 @@ R R R O O Y O
 
 Playing sound drop.
 LOG: Placing brick color red in column 3
-LOG: Found 4-in-a-row at (0, 5) dir (1, 0)
+LOG: Found 4-in-a-row at (0, 5) direction (1, 0)
 ===Model state===
 GameOverState
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O O O O O
+O O O O O Y O
+O O O O O Y O
+R R R R O Y O
+
 Red won.
 
 

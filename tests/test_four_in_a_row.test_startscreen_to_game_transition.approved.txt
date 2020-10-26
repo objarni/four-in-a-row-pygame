@@ -1,3 +1,9 @@
+SCENARIO:
+startscreen_to_game_transition
+events:
+LeftMouseDownAt(pos=(1, 1))
+
+
 FINAL STATE:
 GameState
 It is reds turn.
