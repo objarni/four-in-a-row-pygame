@@ -1,221 +1,130 @@
 import pygame
+import pytest
 from approvaltests import verify
 
 import src.constants
 import src.four_in_a_row
 import src.states
 import src.update
-from src.constants import (WIDTH, HEIGHT)
-from src.four_in_a_row import project_model
+from src.printers import print_model
 from src.messages import LeftMouseDownAt, ColumnWasClicked, MouseMovedTo
 from src.states import GameState, GameOverState, StartScreenState
+from tests.fakes import FakeDrawingAPI, FakeAudioAPI
+from tests.printers import print_rgb, print_scenario, ScenarioLogger
 
 
-class FakeDrawingAPI:
-    def __init__(self):
-        self.surface = pygame.Surface(src.constants.SCREENDIM)
-        self.real_api = src.four_in_a_row.DrawingAPI(self.surface, '../res')
-
-    def draw_rectangle(self, center, size, color):
-        self.real_api.draw_rectangle(center, size, color)
-
-    def draw_disc(self, center, size, color):
-        self.real_api.draw_disc(center, size, color)
-
-    def draw_text(self, center, text, color):
-        self.real_api.draw_text(center, text, color)
-
-    def draw_image(self, center, name, dimension):
-        self.real_api.draw_image(center, name, dimension)
+def test_print_rgb():
+    assert print_rgb(0, 0, 0) == '.'
+    assert print_rgb(200, 0, 0) == 'R'
+    assert print_rgb(0, 200, 0) == 'G'
+    assert print_rgb(0, 0, 200) == 'B'
+    assert print_rgb(200, 200, 0) == 'Y'
+    assert print_rgb(200, 200, 200) == 'W'
 
 
-class FakeAudioAPI:
-    def play_music(self, name):
-        global log
-        log += f"Starting music {name}.\n"
-
-    def stop_music(self):
-        global log
-        log += f"Stopping music playback.\n"
-
-    def play_sound(self, name):
-        global log
-        log += f"Playing sound {name}.\n"
-
-
-def rgb_int2tuple(rgb):
-    return (rgb // 256 // 256 % 256, rgb // 256 % 256, rgb % 256)
-
-
-def project_rgb(r, g, b):
-    if sum([r, g, b]) < 10:
-        return '.'
-    if b < r > g and r > 100:
-        return 'R'
-    if r < g > b and g > 100:
-        return 'G'
-    if r < b > g and b > 100:
-        return 'B'
-    if r > 100 and g > 100 and b < 100:
-        return 'Y'
-    return 'W'
-
-
-assert project_rgb(0, 0, 0) == '.'
-assert project_rgb(200, 0, 0) == 'R'
-assert project_rgb(0, 200, 0) == 'G'
-assert project_rgb(0, 0, 200) == 'B'
-assert project_rgb(200, 200, 0) == 'Y'
-assert project_rgb(200, 200, 200) == 'W'
-
-
-def project(model_and_surface):
-    (model, surface) = model_and_surface
-    ascii_art = project_surface(surface)
-    state_string = project_model(model)
-    return f'''\
-FINAL STATE:
-{state_string}
-
-FINAL SCREEN:
-{ascii_art}
-
-SIMULATION LOG:
-{log}
-'''
-
-
-def project_surface(surface):
-    ascii_art_width = 79
-    ascii_art_height = int(ascii_art_width // (WIDTH / HEIGHT))
-    smaller = pygame.transform.scale(surface, (ascii_art_width, ascii_art_height))
-    ascii_art = ''
-    for y in range(smaller.get_height()):
-        for x in range(smaller.get_width()):
-            color = smaller.get_at_mapped((x, y))
-            (r, g, b) = rgb_int2tuple(color)
-            ascii_color = project_rgb(r, g, b)
-            ascii_art += ascii_color
-        ascii_art += '\n'
-    return ascii_art
-
-
-log = ''
-
-
-def fake_log(s):
-    global log
-    log += f"LOG: {s}\n"
-
-
-src.update.log = fake_log
+@pytest.fixture
+def log():
+    logger = ScenarioLogger()
+    src.update.log = logger
+    return logger
 
 
 def setup_function():
-    global log
     pygame.init()
-    log = ''
 
 
-def simulate(model, messages):
-    global log
+def simulate(model, messages, log):
     # Mimics behaviour of main event loop in four_in_a_row
-    fake_drawing = FakeDrawingAPI()
-    fake_audio = FakeAudioAPI()
+    fake_drawing = FakeDrawingAPI(log)
+    fake_audio = FakeAudioAPI(log)
     log += f"[SIMULATION STARTING]\n"
     log += f"===Model state===\n"
-    log += f"{project_model(model)}\n\n\n"
+    log += f"{print_model(model)}\n\n\n"
     for msg in messages:
         log += f"[SIMULATING MSG={msg}]\n\n"
         model = src.update.update(model, msg, fake_audio)
         log += f"===Model state===\n"
-        log += f"{project_model(model)}\n\n\n"
+        log += f"{print_model(model)}\n\n\n"
     log += f"[SIMULATION ENDED]"
 
     src.view.view(model, fake_drawing)
     return (model, fake_drawing.surface)
 
 
-def test_first_placed_brick_is_red():
-    result = simulate(GameState(), [ColumnWasClicked(0)])
-    verify(project(result))
+def test_first_placed_brick_is_red(log):
+    player_moves = [ColumnWasClicked(0)]
+    result = simulate(GameState(), player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_placing_4_bricks_in_first_column():
+def test_placing_4_bricks_in_first_column(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(0)] * 4)
-    verify(project(result))
+    player_moves = [ColumnWasClicked(0)] * 4
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_placing_too_many_bricks_in_first_column():
+def test_placing_too_many_bricks_in_first_column(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(0)] * 8)
-    verify(project(result))
+    player_moves = [ColumnWasClicked(0)] * 8
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_letting_red_win():
+def test_letting_red_win(log):
     model = GameState()
-    msgs = [ColumnWasClicked(0), ColumnWasClicked(1)] * 3 + [ColumnWasClicked(0)]
-    result = simulate(model, msgs)
-    verify(project(result))
+    player_moves = [ColumnWasClicked(0), ColumnWasClicked(1)] * 3 + [ColumnWasClicked(0)]
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_letting_red_win_horisontally():
+def test_letting_red_win_horisontally(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(c) for c in [0, 5, 1, 5, 2, 5, 3]])
-    verify(project(result))
+    player_moves = [ColumnWasClicked(c) for c in [0, 5, 1, 5, 2, 5, 3]]
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_letting_yellow_win_horisontally():
+def test_letting_yellow_win_horisontally(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(c) for c in [0, 1, 0, 2, 0, 3, 1, 4]])
-    verify(project(result))
+    player_moves = [ColumnWasClicked(c) for c in [0, 1, 0, 2, 0, 3, 1, 4]]
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_slash_red_win():
+def test_slash_red_win(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(c) for c in [
-        0, 1,
-        1, 2,
-        2, 3,
-        2, 3,
-        3, 5,
-        3]])
-    verify(project(result))
+    player_moves = [ColumnWasClicked(c) for c in [0, 1, 1, 2, 2, 3, 2, 3, 3, 5, 3]]
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_backslash_yellow_win():
+def test_backslash_yellow_win(log):
     model = GameState()
-    result = simulate(model, [ColumnWasClicked(c) for c in [
-        0, 6,
-        5, 5,
-        4, 4,
-        3, 4,
-        5, 3,
-        0, 3,
-        0, 3]])
-    verify(project(result))
+    player_moves = [ColumnWasClicked(c) for c in [0, 6, 5, 5, 4, 4, 3, 4, 5, 3, 0, 3, 0, 3]]
+    result = simulate(model, player_moves, log)
+    verify(print_scenario(result, log))
 
 
-def test_startscreen():
+def test_startscreen(log):
     model = StartScreenState()
-    result = simulate(model, [src.messages.Tick(ms) for ms in range(3)])
-    verify(project(result))
+    result = simulate(model, [src.messages.Tick(ms) for ms in range(3)], log)
+    verify(print_scenario(result, log))
 
 
-def test_clicking_in_game_over_state():
+def test_clicking_in_game_over_state(log):
     model = GameOverState(winner=src.constants.RED, board=src.states.empty_board())
-    result = simulate(model, [LeftMouseDownAt((1, 1))])
-    verify(project(result))
+    result = simulate(model, [LeftMouseDownAt((1, 1))], log)
+    verify(print_scenario(result, log))
 
 
-def test_startscreen_to_game_transition():
+def test_startscreen_to_game_transition(log):
     model = StartScreenState()
-    result = simulate(model, [LeftMouseDownAt((1, 1))])
-    verify(project(result))
+    result = simulate(model, [LeftMouseDownAt((1, 1))], log)
+    verify(print_scenario(result, log))
 
 
-def test_mouse_movement_over_game_screen():
+def test_mouse_movement_over_game_screen(log):
     model = GameState()
-    result = simulate(model, [MouseMovedTo((x, x)) for x in range(0, 500, 10)])
-    verify(project(result))
+    result = simulate(model, [MouseMovedTo((x, x)) for x in range(0, 500, 10)], log)
+    verify(print_scenario(result, log))
