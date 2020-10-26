@@ -39,7 +39,7 @@ class FakeAudioAPI:
         self.log += f"Playing sound {name}.\n"
 
 
-def simulate(model, messages, log):
+def simulate_main_event_loop(model, messages, log):
     # Mimics behaviour of main event loop in four_in_a_row
     fake_drawing = FakeDrawingAPI(log)
     fake_audio = FakeAudioAPI(log)

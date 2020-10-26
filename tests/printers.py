@@ -2,34 +2,50 @@ import os
 
 import pygame
 
-import src
 from src.constants import WIDTH, HEIGHT
 from src.messages import ColumnWasClicked
 from src.printers import print_model
 
 
-def rgb_int2tuple(rgb):
-    return (rgb // 256 // 256 % 256, rgb // 256 % 256, rgb % 256)
+def print_scenario(player_moves, model_and_surface, simulation_log):
+    (model, surface) = model_and_surface
+    return f'''\
+SCENARIO:
+{print_scenario_description(player_moves)}
+
+FINAL STATE:
+{print_model(model)}
+
+FINAL SCREEN:
+{print_surface(surface)}
+
+SIMULATION LOG:
+{simulation_log}
+'''
 
 
-def print_rgb(r, g, b):
-    if sum([r, g, b]) < 10:
-        return '.'
-    if b < r > g and r > 100:
-        return 'R'
-    if r < g > b and g > 100:
-        return 'G'
-    if r < b > g and b > 100:
-        return 'B'
-    if r > 100 and g > 100 and b < 100:
-        return 'Y'
-    return 'W'
+class SimulationLog:
+    def __init__(self):
+        self.log = ""
+
+    def append_log(self, msg):
+        self.log += f"LOG: {msg}\n"
+
+    def __add__(self, other):
+        self.log += str(other)
+        return self
+
+    def __call__(self, msg):
+        self.append_log(msg)
+
+    def __str__(self):
+        return self.log
 
 
 def print_scenario_description(events):
     log = ""
-    test_name = os.environ.get('PYTEST_CURRENT_TEST').split(':')[-1].split(' ')[0][5:]
-    log += test_name
+    scenario_name = os.environ.get('PYTEST_CURRENT_TEST').split(':')[-1].split(' ')[0][5:]
+    log += scenario_name
     log += '\n'
     if not events:
         return
@@ -56,25 +72,6 @@ def print_player_moves(player_moves):
     return log
 
 
-def print_scenario(player_moves, model_and_surface, log):
-    (model, surface) = model_and_surface
-    ascii_art = print_surface(surface)
-    state_string = print_model(model)
-    return f'''\
-SCENARIO:
-{print_scenario_description(player_moves)}
-
-FINAL STATE:
-{state_string}
-
-FINAL SCREEN:
-{ascii_art}
-
-SIMULATION LOG:
-{log}
-'''
-
-
 def print_surface(surface):
     ascii_art_width = 79
     ascii_art_height = int(ascii_art_width // (WIDTH / HEIGHT))
@@ -90,19 +87,19 @@ def print_surface(surface):
     return ascii_art
 
 
-class ScenarioLogger:
-    def __init__(self):
-        self.log = ""
+def print_rgb(r, g, b):
+    if sum([r, g, b]) < 10:
+        return '.'
+    if b < r > g and r > 100:
+        return 'R'
+    if r < g > b and g > 100:
+        return 'G'
+    if r < b > g and b > 100:
+        return 'B'
+    if r > 100 and g > 100 and b < 100:
+        return 'Y'
+    return 'W'
 
-    def append_log(self, msg):
-        self.log += f"LOG: {msg}\n"
 
-    def __add__(self, other):
-        self.log += str(other)
-        return self
-
-    def __call__(self, msg):
-        self.append_log(msg)
-
-    def __str__(self):
-        return self.log
+def rgb_int2tuple(rgb):
+    return (rgb // 256 // 256 % 256, rgb // 256 % 256, rgb % 256)
