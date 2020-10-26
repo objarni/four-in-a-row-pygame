@@ -22,8 +22,7 @@ def log():
 
 @pytest.fixture
 def game_underway():
-    model = GameState()
-    return model
+    return GameState()
 
 
 def setup_function():
