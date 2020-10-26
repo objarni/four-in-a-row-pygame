@@ -94,7 +94,7 @@ def check_winning_state(board, color):
         for dir in [(0, 1), (1, 0), (1, 1), (-1, 1)]:
             cells = extract(board, (x, y), dir)
             if all(cell == color for cell in cells):
-                log(f"Found 4-in-a-row at {x, y} dir {dir}")
+                log(f"Found 4-in-a-row at {x, y} direction {dir}")
                 return True
     return False
 

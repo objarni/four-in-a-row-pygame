@@ -1,5 +1,14 @@
 FINAL STATE:
 GameOverState
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O R O O O
+O O R R O O O
+O R R Y O O O
+R Y Y Y O Y O
+
 Red won.
 
 
@@ -296,9 +305,18 @@ R Y Y Y O Y O
 
 Playing sound drop.
 LOG: Placing brick color red in column 3
-LOG: Found 4-in-a-row at (3, 2) dir (-1, 1)
+LOG: Found 4-in-a-row at (3, 2) direction (-1, 1)
 ===Model state===
 GameOverState
+0 1 2 3 4 5 6
+-------------
+O O O O O O O
+O O O O O O O
+O O O R O O O
+O O R R O O O
+O R R Y O O O
+R Y Y Y O Y O
+
 Red won.
 
 

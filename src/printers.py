@@ -9,7 +9,8 @@ def print_model(model):
         state_string += f'{model.time=}\n'
         state_string += f'{model.music_playing=}\n'
     if isinstance(model, GameOverState):
-        state_string += f'{print_color(model.winner).title()} won.\n'
+        state_string += print_board(model.board)
+        state_string += f'\n{print_color(model.winner).title()} won.\n'
     if isinstance(model, GameState):
         state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
         state_string += f'{model.time=}\n'
