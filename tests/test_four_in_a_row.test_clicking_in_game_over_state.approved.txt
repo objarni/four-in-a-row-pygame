@@ -1,3 +1,9 @@
+SCENARIO:
+clicking_in_game_over_state
+events:
+LeftMouseDownAt(pos=(1, 1))
+
+
 FINAL STATE:
 StartScreenState
 model.time=0

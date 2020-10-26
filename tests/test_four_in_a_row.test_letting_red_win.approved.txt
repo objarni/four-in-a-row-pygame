@@ -1,3 +1,11 @@
+SCENARIO:
+letting_red_win
+Player moves:
+  RED: 0  YELLOW: 1
+  RED: 0  YELLOW: 1
+  RED: 0  YELLOW: 1
+  RED: 0
+
 FINAL STATE:
 GameOverState
 0 1 2 3 4 5 6

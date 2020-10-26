@@ -1,3 +1,15 @@
+SCENARIO:
+backslash_yellow_win
+Player moves:
+  RED: 0  YELLOW: 6
+  RED: 5  YELLOW: 5
+  RED: 4  YELLOW: 4
+  RED: 3  YELLOW: 4
+  RED: 5  YELLOW: 3
+  RED: 0  YELLOW: 3
+  RED: 0  YELLOW: 3
+
+
 FINAL STATE:
 GameOverState
 0 1 2 3 4 5 6

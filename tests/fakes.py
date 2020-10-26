@@ -2,6 +2,8 @@ import pygame
 
 import src.constants
 import src.four_in_a_row
+import src.update
+from src.printers import print_model
 
 
 class FakeDrawingAPI:
@@ -35,3 +37,21 @@ class FakeAudioAPI:
 
     def play_sound(self, name):
         self.log += f"Playing sound {name}.\n"
+
+
+def simulate(model, messages, log):
+    # Mimics behaviour of main event loop in four_in_a_row
+    fake_drawing = FakeDrawingAPI(log)
+    fake_audio = FakeAudioAPI(log)
+    log += f"[SIMULATION STARTING]\n"
+    log += f"===Model state===\n"
+    log += f"{print_model(model)}\n\n\n"
+    for msg in messages:
+        log += f"[SIMULATING MSG={msg}]\n\n"
+        model = src.update.update(model, msg, fake_audio)
+        log += f"===Model state===\n"
+        log += f"{print_model(model)}\n\n\n"
+    log += f"[SIMULATION ENDED]"
+
+    src.view.view(model, fake_drawing)
+    return (model, fake_drawing.surface)

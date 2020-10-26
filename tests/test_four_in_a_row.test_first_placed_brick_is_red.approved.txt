@@ -1,3 +1,8 @@
+SCENARIO:
+first_placed_brick_is_red
+Player moves:
+  RED: 0
+
 FINAL STATE:
 GameState
 It is yellows turn.

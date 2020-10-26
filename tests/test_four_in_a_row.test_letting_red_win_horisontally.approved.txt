@@ -1,3 +1,11 @@
+SCENARIO:
+letting_red_win_horisontally
+Player moves:
+  RED: 0  YELLOW: 5
+  RED: 1  YELLOW: 5
+  RED: 2  YELLOW: 5
+  RED: 3
+
 FINAL STATE:
 GameOverState
 0 1 2 3 4 5 6
