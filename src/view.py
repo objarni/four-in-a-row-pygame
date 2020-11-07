@@ -1,7 +1,7 @@
 from src.constants import (CENTER, WIDTH, HEIGHT, Color, CENTER_X, CENTER_Y, DISC_DIAMETER, \
                            BOARD_LEFT, BOARD_RIGHT, DISC_RADIUS, BOARD_HEIGHT, DROP_DELAY_MS, COLUMNS, ROWS, EMPTY, RED)
 from src.states import StartScreenState, GameState, GameOverState
-from src.update import print_color, convert_to_column, positions_in_print_order
+from src.update import convert_to_column, positions_in_print_order, int_to_color_name
 
 
 def view(model, drawing_api):
@@ -40,7 +40,7 @@ assert frac(10, 20, 17.5) == 0.75
 def view_gamestate(api, model):
     board = model.board
     draw_board(api, board)
-    api.draw_text((WIDTH // 2, 20), f"{print_color(model.whos_turn_is_it).title()} to place disc", Color.WHITE)
+    api.draw_text((WIDTH // 2, 20), f"{int_to_color_name(model.whos_turn_is_it).title()} to place disc", Color.WHITE)
     api.draw_rectangle((BOARD_LEFT, CENTER_Y), (2, 100), Color.GREEN)
     api.draw_rectangle((BOARD_RIGHT, CENTER_Y), (2, 100), Color.GREEN)
 
@@ -71,7 +71,7 @@ def view_gameoverstate(api, model):
                Color.WHITE)
 
     edged_text(api,
-               f"{print_color(model.winner)} won!".upper(),
+               f"{int_to_color_name(model.winner)} won!".upper(),
                ((CENTER_X), (CENTER_Y + 30)),
                rgb_from_color(model.winner))
 

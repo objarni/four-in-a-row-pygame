@@ -1,6 +1,6 @@
 from src.constants import EMPTY, RED, YELLOW, ROWS, COLUMNS
 from src.states import StartScreenState, GameOverState, GameState
-from src.update import print_color
+from src.update import int_to_color_name
 
 
 def print_model(model):
@@ -10,9 +10,9 @@ def print_model(model):
         state_string += f'{model.music_playing=}\n'
     if isinstance(model, GameOverState):
         state_string += print_board(model.board)
-        state_string += f'\n{print_color(model.winner).title()} won.\n'
+        state_string += f'\n{int_to_color_name(model.winner).title()} won.\n'
     if isinstance(model, GameState):
-        state_string += f'It is {print_color(model.whos_turn_is_it)}s turn.\n'
+        state_string += f'It is {int_to_color_name(model.whos_turn_is_it)}s turn.\n'
         state_string += f'{model.time=}\n'
         state_string += f'The mouse is at {model.mouse_pos}.\n'
         state_string += f'{model.mouse_down_time=}\n'
@@ -32,3 +32,5 @@ def print_board(board):
     for y in range(ROWS):
         board_string += ' '.join(symbols[board[(x, y)]] for x in range(COLUMNS)) + '\n'
     return board_string
+
+

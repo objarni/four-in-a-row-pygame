@@ -80,17 +80,13 @@ def update_gamestate(gamestate, msg, audio_api):
 
 
 def place_brick(board, color, column):
-    log(f"Placing brick color {print_color(color)} in column {column}")
+    log(f"Placing brick color {int_to_color_name(color)} in column {column}")
     for i in range(ROWS):
         y = ROWS - i - 1
         if board[(column, y)] == EMPTY:
             board[(column, y)] = color
             break
     return board
-
-
-def print_color(color):
-    return 'red' if color == RED else 'yellow'
 
 
 def check_winning_state(board, color):
@@ -128,3 +124,7 @@ def convert_to_column(x):
 def log(msg):
     pass
     # print(msg)
+
+
+def int_to_color_name(color):
+    return 'red' if color == RED else 'yellow'
